@@ -9,14 +9,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
   <link rel="icon" href="assets/favicon.png" />
-  <meta name="theme-color" content="#0f1022" />
+  <meta name="theme-color" content="#100f1a" />
   <script>
-    // set theme asap to avoid flash
-    (() => {
-      const saved = localStorage.getItem('theme');
-      const prefers = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light';
-      document.documentElement.dataset.theme = saved || prefers;
-    })();
+    // set flags early (no FOUC / enable no-JS fallbacks)
+    document.documentElement.classList.add('js');
+    const saved = localStorage.getItem('theme');
+    const prefers = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light';
+    document.documentElement.dataset.theme = saved || prefers;
   </script>
 </head>
 <body>
@@ -37,11 +36,11 @@
     <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">◐</button>
   </header>
 
-  <!-- soft, colorful background blobs -->
+  <!-- soft pastel background petals -->
   <div class="bg" aria-hidden="true">
-    <span class="blob b1"></span>
-    <span class="blob b2"></span>
-    <span class="blob b3"></span>
+    <span class="petal p1"></span>
+    <span class="petal p2"></span>
+    <span class="petal p3"></span>
   </div>
 
   <main>
@@ -93,7 +92,7 @@
       </ul>
     </section>
 
-    <!-- PROJECTS -->
+    <!-- PROJECTS (your 5 feature projects) -->
     <section class="section" id="projects" aria-labelledby="projects-title">
       <div class="section-head">
         <h2 id="projects-title">Projects</h2>
@@ -103,69 +102,69 @@
         <article class="project reveal">
           <div class="badge">Analysis</div>
           <h3>Diabetes: OLS end-to-end</h3>
-          <p>Pipeline with EDA, feature prep, OLS, assumptions checks, and error analysis.</p>
+          <p>EDA → feature prep → OLS with assumptions checks and error analysis.</p>
           <ul class="tags"><li>Python</li><li>pandas</li><li>statsmodels</li></ul>
           <div class="actions">
-            <a class="btn small" href="https://github.com/h-dhatt" target="_blank" rel="noopener">Repo</a>
+            <a class="btn small" href="https://github.com/h-dhatt/diabetes-stats-ols" target="_blank" rel="noopener">Repo</a>
           </div>
         </article>
 
         <article class="project reveal">
           <div class="badge">ML</div>
           <h3>Breast Cancer: model comparison</h3>
-          <p>Logit, k-NN, SVM, and Random Forest with cross-validation and metrics dashboard.</p>
+          <p>Logit, k-NN, SVM, and Random Forest with cross-validation and metrics.</p>
           <ul class="tags"><li>Python</li><li>scikit-learn</li><li>EDA</li></ul>
           <div class="actions">
-            <a class="btn small" href="https://github.com/h-dhatt" target="_blank" rel="noopener">Repo</a>
+            <a class="btn small" href="https://github.com/h-dhatt/breastcancer-ml-classifiers" target="_blank" rel="noopener">Repo</a>
           </div>
         </article>
 
         <article class="project reveal">
           <div class="badge">Numerics</div>
           <h3>ODEs: Euler vs RK4</h3>
-          <p>Accuracy/stability versus step size; visual comparisons and timing notes.</p>
+          <p>Accuracy & stability versus step size; visual comparisons and notes.</p>
           <ul class="tags"><li>Python</li><li>Numerical</li></ul>
           <div class="actions">
-            <a class="btn small" href="https://github.com/h-dhatt" target="_blank" rel="noopener">Repo</a>
+            <a class="btn small" href="https://github.com/h-dhatt/numerical-methods-euler-rk4" target="_blank" rel="noopener">Repo</a>
+          </div>
+        </article>
+
+        <article class="project reveal">
+          <div class="badge">Simulation</div>
+          <h3>Probability: Monte Carlo</h3>
+          <p>Stochastic simulations for probability questions and intuition building.</p>
+          <ul class="tags"><li>Python</li><li>Monte Carlo</li></ul>
+          <div class="actions">
+            <a class="btn small" href="https://github.com/h-dhatt/probability-simulation-montecarlo" target="_blank" rel="noopener">Repo</a>
+          </div>
+        </article>
+
+        <article class="project reveal">
+          <div class="badge">Finance</div>
+          <h3>GBM Market Simulator</h3>
+          <p>Geometric Brownian Motion for price paths; scenarios and visualization.</p>
+          <ul class="tags"><li>Python</li><li>NumPy</li></ul>
+          <div class="actions">
+            <a class="btn small" href="https://github.com/h-dhatt/finance-simulation-gbm" target="_blank" rel="noopener">Repo</a>
           </div>
         </article>
       </div>
     </section>
 
-    <!-- PLAYGROUND -->
+    <!-- PLAYGROUND (auto-filled by JS, with no-JS fallback) -->
     <section class="section" id="playground" aria-labelledby="playground-title">
       <div class="section-head">
         <h2 id="playground-title">Playground</h2>
         <p class="muted">Tiny experiments, interactive bits, and fun demos.</p>
       </div>
 
-      <div class="cards">
-        <article class="project">
-          <div class="badge badge-soft">Interactive</div>
-          <h3>Canvas Toy</h3>
-          <p>Simple canvas play area with shapes and easing.</p>
-          <div class="actions">
-            <a class="btn small" href="#" aria-disabled="true">Demo</a>
-          </div>
-        </article>
+      <!-- JS will render cards here -->
+      <div id="playground-cards" class="cards"></div>
 
-        <article class="project">
-          <div class="badge badge-soft">Experiment</div>
-          <h3>Color Sampler</h3>
-          <p>A tiny tool for building harmonious palettes.</p>
-          <div class="actions">
-            <a class="btn small" href="#" aria-disabled="true">Demo</a>
-          </div>
-        </article>
-
-        <article class="project">
-          <div class="badge badge-soft">Utility</div>
-          <h3>Grid Moves</h3>
-          <p>Grid-based logic mini with keyboard controls.</p>
-          <div class="actions">
-            <a class="btn small" href="#" aria-disabled="true">Demo</a>
-          </div>
-        </article>
+      <!-- no-JS fallback -->
+      <div class="no-js-only">
+        <p class="muted">Playground items need JavaScript to render here. You can also browse them on GitHub:</p>
+        <p><a class="btn" href="https://github.com/h-dhatt?tab=repositories" target="_blank" rel="noopener">Open all repositories</a></p>
       </div>
     </section>
 
