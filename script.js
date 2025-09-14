@@ -12,7 +12,8 @@ if (toggle){
 // year
 document.getElementById('year').textContent = new Date().getFullYear();
 
-// reveal projects on scroll
+// reveal on scroll (progressive enhancement)
+// cards are visible by default; this just animates .reveal ones
 const io = new IntersectionObserver((entries) => {
   entries.forEach(e => {
     if (e.isIntersecting){
