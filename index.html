@@ -1,61 +1,133 @@
 <!doctype html>
-</section>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Harleen Dhatt | Data, Economics, Analytics</title>
+  <meta name="description" content="Portfolio of Harleen Dhatt — data analytics, economics, and programming projects." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="assets/favicon.svg" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html">HD</a>
+    <nav class="nav">
+      <a href="projects.html">Projects</a>
+      <a href="resume.html">Resume</a>
+      <a class="btn btn--primary" href="mailto:harleendhatt47@gmail.com">Contact</a>
+    </nav>
+  </header>
 
+  <main>
+    <!-- Hero -->
+    <section class="hero container">
+      <div class="hero__text">
+        <p class="overline">Data • Economics • Programming</p>
+        <h1 class="display">Hi, I’m <span class="accent">Harleen Dhatt</span>.</h1>
+        <p class="lead">I study Mathematics & Statistics with Economics and build carefully argued, well-documented analyses. My work spans econometrics, ML for classification, simulation, and mathematical computing.</p>
+        <div class="cta">
+          <a class="btn btn--primary" href="projects.html">See Projects</a>
+          <a class="btn btn--ghost" href="resume.html">Download CV</a>
+        </div>
+        <ul class="chips">
+          <li>Python</li><li>R</li><li>SQL</li><li>StatsModels</li><li>scikit-learn</li><li>Matplotlib</li>
+        </ul>
+      </div>
+      <div class="hero__card">
+        <div class="card">
+          <h3>What I’m great at</h3>
+          <ul class="checklist">
+            <li>Turning messy data into clean, analyzable datasets</li>
+            <li>Explaining results clearly — visuals + concise writing</li>
+            <li>Building reproducible notebooks & reports</li>
+          </ul>
+          <div class="meta-grid">
+            <div><span class="meta">Econometrics</span><span class="muted">OLS • GLMs • Diagnostics</span></div>
+            <div><span class="meta">ML</span><span class="muted">Logit • SVM • RF • CV</span></div>
+            <div><span class="meta">Math Comp</span><span class="muted">ODEs • RK4 • Monte Carlo</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<!-- Featured projects preview -->
-<section class="container section">
-<div class="section-head">
-<h2 class="eyebrow">Featured Projects</h2>
-<a class="link" href="projects.html">View all</a>
-</div>
-<div class="cards">
-<!-- Mirror of your projects.html entries -->
-<article class="project">
-<h3>Diabetes Stats — OLS</h3>
-<p>End‑to‑end OLS: preprocessing, diagnostics, and error analysis on a real dataset.</p>
-<span class="tags">Python · StatsModels · EDA</span>
-<a class="btn btn--sm" href="https://github.com/h-dhatt/diabetes-stats-ols" target="_blank" rel="noopener">Repo</a>
-</article>
-<article class="project">
-<h3>Breast Cancer ML — Classifiers</h3>
-<p>Logit, k‑NN, SVM, and Random Forest; cross‑validation and model comparison.</p>
-<span class="tags">Python · scikit‑learn</span>
-<a class="btn btn--sm" href="https://github.com/h-dhatt/breastcancer-ml-classifiers" target="_blank" rel="noopener">Repo</a>
-</article>
-<article class="project">
-<h3>Numerical Methods — Euler & RK4</h3>
-<p>Explicit Euler vs. RK4 for ODEs; stability and error vs. step size.</p>
-<span class="tags">Python · Numerical Analysis</span>
-<a class="btn btn--sm" href="https://github.com/h-dhatt/numerical-methods-euler-rk4" target="_blank" rel="noopener">Repo</a>
-</article>
-</div>
-</section>
+    <!-- Highlights -->
+    <section class="container section">
+      <h2 class="eyebrow">Highlights</h2>
+      <div class="grid-3">
+        <div class="tile">
+          <h3>Recent Coursework</h3>
+          <ul class="list">
+            <li>Econometrics & Statistical Inference</li>
+            <li>Numerical Methods & ODEs</li>
+            <li>Machine Learning for Classification</li>
+          </ul>
+        </div>
+        <div class="tile">
+          <h3>Toolbox</h3>
+          <ul class="list two-col">
+            <li>Python</li><li>R</li><li>SQL</li><li>Pandas</li><li>NumPy</li><li>StatsModels</li><li>scikit-learn</li><li>Tableau</li>
+          </ul>
+        </div>
+        <div class="tile">
+          <h3>What I value</h3>
+          <p class="muted">Clarity, reproducibility, and honest uncertainty. I annotate code, version results, and document decisions.</p>
+        </div>
+      </div>
+    </section>
 
+    <!-- Featured projects preview -->
+    <section class="container section">
+      <div class="section-head">
+        <h2 class="eyebrow">Featured Projects</h2>
+        <a class="link" href="projects.html">View all</a>
+      </div>
+      <div class="cards">
+        <article class="project">
+          <h3>Diabetes Stats — OLS</h3>
+          <p>End-to-end OLS: preprocessing, diagnostics, and error analysis on a real dataset.</p>
+          <span class="tags">Python · StatsModels · EDA</span>
+          <a class="btn btn--sm" href="https://github.com/h-dhatt/diabetes-stats-ols" target="_blank" rel="noopener">Repo</a>
+        </article>
+        <article class="project">
+          <h3>Breast Cancer ML — Classifiers</h3>
+          <p>Logit, k-NN, SVM, and Random Forest; cross-validation and model comparison.</p>
+          <span class="tags">Python · scikit-learn</span>
+          <a class="btn btn--sm" href="https://github.com/h-dhatt/breastcancer-ml-classifiers" target="_blank" rel="noopener">Repo</a>
+        </article>
+        <article class="project">
+          <h3>Numerical Methods — Euler & RK4</h3>
+          <p>Explicit Euler vs. RK4 for ODEs; stability and error vs. step size.</p>
+          <span class="tags">Python · Numerical Analysis</span>
+          <a class="btn btn--sm" href="https://github.com/h-dhatt/numerical-methods-euler-rk4" target="_blank" rel="noopener">Repo</a>
+        </article>
+      </div>
+    </section>
 
-<!-- Mini Games Showcase (teaser) -->
-<section class="container section">
-<div class="section-head">
-<h2 class="eyebrow">Mini Games (2022)</h2>
-<a class="link" href="projects.html#mini-games">See all</a>
-</div>
-<div id="games-teaser" class="marquee" aria-live="polite">
-<!-- Filled by script.js using GitHub API -->
-</div>
-<noscript><p class="muted">Enable JavaScript to load the games showcase.</p></noscript>
-</section>
-</main>
+    <!-- Mini Games Showcase (teaser) -->
+    <section class="container section">
+      <div class="section-head">
+        <h2 class="eyebrow">Mini Games (2022)</h2>
+        <a class="link" href="projects.html#mini-games">See all</a>
+      </div>
+      <div id="games-teaser" class="marquee" aria-live="polite"></div>
+      <noscript><p class="muted">Enable JavaScript to load the games showcase.</p></noscript>
+    </section>
+  </main>
 
-
-<footer class="site-footer">
-<div class="container foot">
-<span>© <span id="y"></span> Harleen Dhatt</span>
-<nav class="foot-nav">
-<a href="https://www.linkedin.com/in/harleen-dhatt" target="_blank" rel="noopener">LinkedIn</a>
-<a href="mailto:harleendhatt47@gmail.com">Email</a>
-<a href="projects.html">Projects</a>
-</nav>
-</div>
-</footer>
-<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+  <footer class="site-footer">
+    <div class="container foot">
+      <span>© <span id="y"></span> Harleen Dhatt</span>
+      <nav class="foot-nav">
+        <a href="https://www.linkedin.com/in/harleen-dhatt" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:harleendhatt47@gmail.com">Email</a>
+        <a href="projects.html">Projects</a>
+      </nav>
+    </div>
+  </footer>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 </html>
