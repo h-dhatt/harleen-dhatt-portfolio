@@ -1,58 +1,121 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Projects | Harleen Dhatt</title>
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <header>
-    <h1>Projects</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="projects.html">Projects</a>
-      <a href="resume.html">Resume</a>
-    </nav>
-  </header>
-  <main>
-    <section>
-      <h2>1. Market Segmentation with K-Means Clustering</h2>
-      <p>Used K-Means clustering to analyze customer segmentation from a retail dataset. Cleaned data with Python (pandas, seaborn), built cluster visualizations, and developed an interactive Tableau dashboard to share insights.</p>
-      <p><strong>Tools:</strong> Python, scikit-learn, Tableau</p>
-      <p><a href="https://github.com/h-dhatt/market-segmentation" target="_blank">View GitHub Repo</a></p>
-    </section>
+<section id="projects" class="projects-section">
+  <h1>Projects</h1>
 
-    <section>
-      <h2>2. Ontario Housing Price Analysis</h2>
-      <p>Analyzed 10 years of real estate data in Ontario to explore price trends, interest rate effects, and seasonality. Built a Power BI dashboard to present key insights for policy and investment recommendations.</p>
-      <p><strong>Tools:</strong> Python, Power BI, matplotlib</p>
-      <p><a href="https://github.com/h-dhatt/ontario-housing-analysis" target="_blank">View GitHub Repo</a></p>
-    </section>
+  <div class="projects-grid">
 
-    <section>
-      <h2>3. COVID-19 Mobility Impact Report</h2>
-      <p>Explored Apple & Google mobility datasets to study the impact of COVID-19 on movement trends across Canada. Visualized results in Tableau and wrote a report summarizing findings and recommendations.</p>
-      <p><strong>Tools:</strong> Python, pandas, Tableau</p>
-      <p><a href="https://github.com/h-dhatt/covid-mobility-report" target="_blank">View GitHub Repo</a></p>
-    </section>
+    <!-- Project 1 -->
+    <article class="project-card">
+      <img src="assets/img/diabetes-thumb.jpg" alt="Diabetes OLS project thumbnail" loading="lazy">
+      <h2>daibete-stats-ols</h2>
+      <p>OLS regression analysis on diabetes dataset: feature engineering, diagnostics, and interpretation.</p>
+      <div class="tags">
+        <span>Python</span><span>Pandas</span><span>Statsmodels</span><span>OLS</span>
+      </div>
+      <div class="links">
+        <a href="https://github.com/USERNAME/daibete-stats-ols" target="_blank" rel="noopener">Repo</a>
+        <a href="https://github.com/USERNAME/daibete-stats-ols#readme" target="_blank" rel="noopener">README</a>
+        <a href="https://USERNAME.github.io/daibete-stats-ols" target="_blank" rel="noopener">Demo/Notebook</a>
+      </div>
+    </article>
 
-    <section>
-      <h2>4. Customer Churn Prediction</h2>
-      <p>Built a logistic regression and random forest model to predict churn using telecom data. Tuned hyperparameters and evaluated model accuracy with precision-recall metrics.</p>
-      <p><strong>Tools:</strong> Python, scikit-learn, matplotlib, seaborn</p>
-      <p><a href="https://github.com/h-dhatt/customer-churn" target="_blank">View GitHub Repo</a></p>
-    </section>
+    <!-- Project 2 -->
+    <article class="project-card">
+      <img src="assets/img/numerical-methods-thumb.jpg" alt="Numerical methods project thumbnail" loading="lazy">
+      <h2>numerical-methods-euler-rk4</h2>
+      <p>ODE solvers from scratch (Euler, RK4) with stability/accuracy comparison and visualizations.</p>
+      <div class="tags">
+        <span>Python</span><span>NumPy</span><span>Matplotlib</span><span>ODEs</span>
+      </div>
+      <div class="links">
+        <a href="https://github.com/USERNAME/numerical-methods-euler-rk4" target="_blank" rel="noopener">Repo</a>
+        <a href="https://github.com/USERNAME/numerical-methods-euler-rk4#readme" target="_blank" rel="noopener">README</a>
+        <a href="https://USERNAME.github.io/numerical-methods-euler-rk4" target="_blank" rel="noopener">Demo/Notebook</a>
+      </div>
+    </article>
 
-    <section>
-      <h2>5. Financial Sentiment Analyzer</h2>
-      <p>Created a tool that performs sentiment analysis on financial news headlines using NLP and a custom-trained model. Output sentiment scores and trend lines for investor confidence.</p>
-      <p><strong>Tools:</strong> Python, NLTK, vaderSentiment, Streamlit</p>
-      <p><a href="https://github.com/h-dhatt/financial-sentiment" target="_blank">View GitHub Repo</a></p>
-    </section>
+    <!-- Project 3 -->
+    <article class="project-card">
+      <img src="assets/img/breastcancer-thumb.jpg" alt="Breast cancer ML project thumbnail" loading="lazy">
+      <h2>breastcancer-ml-classifiers</h2>
+      <p>Supervised models for diagnosis (e.g., logistic regression, k-NN, SVM, random forest) on the WBC dataset.</p>
+      <div class="tags">
+        <span>Python</span><span>scikit-learn</span><span>Classification</span>
+      </div>
+      <div class="links">
+        <a href="https://github.com/USERNAME/breastcancer-ml-classifiers" target="_blank" rel="noopener">Repo</a>
+        <a href="https://github.com/USERNAME/breastcancer-ml-classifiers#readme" target="_blank" rel="noopener">README</a>
+        <a href="https://USERNAME.github.io/breastcancer-ml-classifiers" target="_blank" rel="noopener">Demo/Notebook</a>
+      </div>
+    </article>
 
-  </main>
-  <footer>
-    <p>© 2025 Harleen Dhatt</p>
-  </footer>
-</body>
-</html>
+    <!-- Project 4 -->
+    <article class="project-card">
+      <img src="assets/img/probability-sim-thumb.jpg" alt="Probability simulation project thumbnail" loading="lazy">
+      <h2>probability-simulation-montecarlo</h2>
+      <p>Monte Carlo simulations for distributions, random walks, and law of large numbers experiments.</p>
+      <div class="tags">
+        <span>Python</span><span>Simulation</span><span>Monte Carlo</span>
+      </div>
+      <div class="links">
+        <a href="https://github.com/USERNAME/probability-simulation-montecarlo" target="_blank" rel="noopener">Repo</a>
+        <a href="https://github.com/USERNAME/probability-simulation-montecarlo#readme" target="_blank" rel="noopener">README</a>
+        <a href="https://USERNAME.github.io/probability-simulation-montecarlo" target="_blank" rel="noopener">Demo/Notebook</a>
+      </div>
+    </article>
+
+    <!-- Project 5 -->
+    <article class="project-card">
+      <img src="assets/img/finance-gbm-thumb.jpg" alt="Finance GBM project thumbnail" loading="lazy">
+      <h2>finance-simulation-gbm</h2>
+      <p>Geometric Brownian Motion for asset paths, pricing experiments, and parameter sensitivity.</p>
+      <div class="tags">
+        <span>Python</span><span>Stochastic</span><span>Finance</span><span>GBM</span>
+      </div>
+      <div class="links">
+        <a href="https://github.com/USERNAME/finance-simulation-gbm" target="_blank" rel="noopener">Repo</a>
+        <a href="https://github.com/USERNAME/finance-simulation-gbm#readme" target="_blank" rel="noopener">README</a>
+        <a href="https://USERNAME.github.io/finance-simulation-gbm" target="_blank" rel="noopener">Demo/Notebook</a>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<style>
+  .projects-section { max-width: 1100px; margin: 0 auto; padding: 2rem 1rem 4rem; }
+  .projects-section h1 { font-size: 2rem; margin-bottom: 1.25rem; }
+  .projects-grid {
+    display: grid; gap: 1.25rem;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  }
+  .project-card {
+    border: 1px solid #e5e7eb; border-radius: 12px; padding: 1rem;
+    background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.04);
+    display: flex; flex-direction: column; gap: .75rem;
+    transition: transform .12s ease, box-shadow .12s ease;
+  }
+  .project-card:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0,0,0,.08); }
+  .project-card img {
+    width: 100%; height: 150px; object-fit: cover; border-radius: 8px; background: #f6f7f9;
+  }
+  .project-card h2 { font-size: 1.1rem; margin: 0; }
+  .project-card p { margin: 0; color: #444; line-height: 1.45; }
+  .tags { display: flex; flex-wrap: wrap; gap: .4rem; }
+  .tags span {
+    font-size: .75rem; padding: .25rem .5rem; border-radius: 999px; background: #f3f4f6; color: #111827;
+    border: 1px solid #e5e7eb;
+  }
+  .links { display: flex; gap: .6rem; flex-wrap: wrap; margin-top: .25rem; }
+  .links a {
+    font-size: .85rem; text-decoration: none; border: 1px solid #e5e7eb; padding: .35rem .6rem; border-radius: 8px;
+    background: #fafafa;
+  }
+  .links a:hover { background: #f0f0f0; }
+  @media (prefers-color-scheme: dark) {
+    .project-card { background: #0b0d10; border-color: #1f2937; }
+    .project-card p { color: #cbd5e1; }
+    .tags span { background: #111827; color: #e5e7eb; border-color: #1f2937; }
+    .links a { background: #0f141b; border-color: #1f2937; color: #e5e7eb; }
+    .links a:hover { background: #111827; }
+  }
+</style>
