@@ -1,32 +1,61 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Harleen Dhatt | Data Analyst</title>
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <header>
-    <h1>Harleen Dhatt</h1>
-    <p>Data Analyst | Math & Stats + Economics | McMaster University</p>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="projects.html">Projects</a>
-      <a href="resume.html">Resume</a>
-      <a href="mailto:dhatth2@mcmaster.ca">Contact</a>
-    </nav>
-  </header>
+<!doctype html>
+</section>
 
-  <main>
-    <section>
-      <h2>Welcome!</h2>
-      <p>I'm Harleen, a Mathematics & Statistics student with a minor in Economics at McMaster University. I'm passionate about data-driven problem solving, market research, and analytics. This is where I showcase my portfolio projects, resume, and certifications.</p>
-    </section>
-  </main>
 
-  <footer>
-    <p>© 2025 Harleen Dhatt | <a href="https://linkedin.com/in/harleen-dhatt" target="_blank">LinkedIn</a></p>
-  </footer>
+<!-- Featured projects preview -->
+<section class="container section">
+<div class="section-head">
+<h2 class="eyebrow">Featured Projects</h2>
+<a class="link" href="projects.html">View all</a>
+</div>
+<div class="cards">
+<!-- Mirror of your projects.html entries -->
+<article class="project">
+<h3>Diabetes Stats — OLS</h3>
+<p>End‑to‑end OLS: preprocessing, diagnostics, and error analysis on a real dataset.</p>
+<span class="tags">Python · StatsModels · EDA</span>
+<a class="btn btn--sm" href="https://github.com/h-dhatt/diabetes-stats-ols" target="_blank" rel="noopener">Repo</a>
+</article>
+<article class="project">
+<h3>Breast Cancer ML — Classifiers</h3>
+<p>Logit, k‑NN, SVM, and Random Forest; cross‑validation and model comparison.</p>
+<span class="tags">Python · scikit‑learn</span>
+<a class="btn btn--sm" href="https://github.com/h-dhatt/breastcancer-ml-classifiers" target="_blank" rel="noopener">Repo</a>
+</article>
+<article class="project">
+<h3>Numerical Methods — Euler & RK4</h3>
+<p>Explicit Euler vs. RK4 for ODEs; stability and error vs. step size.</p>
+<span class="tags">Python · Numerical Analysis</span>
+<a class="btn btn--sm" href="https://github.com/h-dhatt/numerical-methods-euler-rk4" target="_blank" rel="noopener">Repo</a>
+</article>
+</div>
+</section>
+
+
+<!-- Mini Games Showcase (teaser) -->
+<section class="container section">
+<div class="section-head">
+<h2 class="eyebrow">Mini Games (2022)</h2>
+<a class="link" href="projects.html#mini-games">See all</a>
+</div>
+<div id="games-teaser" class="marquee" aria-live="polite">
+<!-- Filled by script.js using GitHub API -->
+</div>
+<noscript><p class="muted">Enable JavaScript to load the games showcase.</p></noscript>
+</section>
+</main>
+
+
+<footer class="site-footer">
+<div class="container foot">
+<span>© <span id="y"></span> Harleen Dhatt</span>
+<nav class="foot-nav">
+<a href="https://www.linkedin.com/in/harleen-dhatt" target="_blank" rel="noopener">LinkedIn</a>
+<a href="mailto:harleendhatt47@gmail.com">Email</a>
+<a href="projects.html">Projects</a>
+</nav>
+</div>
+</footer>
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 </html>
