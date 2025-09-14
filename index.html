@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
   <link rel="icon" href="assets/favicon.png" />
-  <meta name="theme-color" content="#181826" />
+  <meta name="theme-color" content="#0f1022" />
   <script>
     // set theme asap to avoid flash
     (() => {
@@ -37,11 +37,11 @@
     <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">◐</button>
   </header>
 
-  <!-- background paints -->
-  <div class="bg">
-    <span class="blob b1" aria-hidden="true"></span>
-    <span class="blob b2" aria-hidden="true"></span>
-    <span class="blob b3" aria-hidden="true"></span>
+  <!-- soft, colorful background blobs -->
+  <div class="bg" aria-hidden="true">
+    <span class="blob b1"></span>
+    <span class="blob b2"></span>
+    <span class="blob b3"></span>
   </div>
 
   <main>
@@ -97,8 +97,6 @@
     <section class="section" id="projects" aria-labelledby="projects-title">
       <div class="section-head">
         <h2 id="projects-title">Projects</h2>
-        <!-- change this link if you add a separate page -->
-        <!-- <a class="link" href="projects.html">View all</a> -->
       </div>
 
       <div class="cards">
@@ -142,7 +140,7 @@
       </div>
 
       <div class="cards">
-        <article class="project reveal">
+        <article class="project">
           <div class="badge badge-soft">Interactive</div>
           <h3>Canvas Toy</h3>
           <p>Simple canvas play area with shapes and easing.</p>
@@ -151,7 +149,7 @@
           </div>
         </article>
 
-        <article class="project reveal">
+        <article class="project">
           <div class="badge badge-soft">Experiment</div>
           <h3>Color Sampler</h3>
           <p>A tiny tool for building harmonious palettes.</p>
@@ -160,8 +158,8 @@
           </div>
         </article>
 
-        <article class="project reveal">
-          <div class="badge badge-soft">Puzzle</div>
+        <article class="project">
+          <div class="badge badge-soft">Utility</div>
           <h3>Grid Moves</h3>
           <p>Grid-based logic mini with keyboard controls.</p>
           <div class="actions">
