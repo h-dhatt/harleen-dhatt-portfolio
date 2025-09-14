@@ -11,7 +11,6 @@
   <link rel="icon" href="assets/favicon.png" />
   <meta name="theme-color" content="#100f1a" />
   <script>
-    // set flags early (no FOUC / enable no-JS fallbacks)
     document.documentElement.classList.add('js');
     const saved = localStorage.getItem('theme');
     const prefers = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light';
@@ -26,7 +25,7 @@
     </a>
 
     <nav class="nav" aria-label="Primary">
-      <a href="projects.html">Projects</a>
+      <a href="#projects">Projects</a>
       <a href="#skills">Skills</a>
       <a href="#playground">Playground</a>
       <a href="Harleen-Dhatt-Resume.pdf" target="_blank" rel="noopener">Resume</a>
@@ -36,7 +35,6 @@
     <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">◐</button>
   </header>
 
-  <!-- soft pastel background petals -->
   <div class="bg" aria-hidden="true">
     <span class="petal p1"></span>
     <span class="petal p2"></span>
@@ -55,7 +53,7 @@
         clear visuals, and small tools that make ideas click.
       </p>
       <div class="hero-ctas">
-        <a class="btn primary" href="projects.html">Explore Projects</a>
+        <a class="btn primary" href="#projects">Explore Projects</a>
         <a class="btn ghost" href="Harleen-Dhatt-Resume.pdf" target="_blank" rel="noopener">Download Resume</a>
       </div>
       <ul class="stack" aria-label="Tech I use">
@@ -92,11 +90,10 @@
       </ul>
     </section>
 
-    <!-- PROJECTS (featured on homepage; full list is on projects.html) -->
+    <!-- PROJECTS -->
     <section class="section" id="projects" aria-labelledby="projects-title">
       <div class="section-head">
         <h2 id="projects-title">Projects</h2>
-        <p class="muted">See the full list on the <a href="projects.html">Projects page</a>.</p>
       </div>
 
       <div class="cards">
@@ -149,6 +146,47 @@
             <a class="btn small" href="https://github.com/h-dhatt/finance-simulation-gbm" target="_blank" rel="noopener">Repo</a>
           </div>
         </article>
+
+        <!-- New Projects -->
+        <article class="project reveal">
+          <div class="badge">RL</div>
+          <h3>Multi-Armed Bandits</h3>
+          <p>Exploration–exploitation tradeoff tested with ε-Greedy, UCB, and Thompson Sampling on simulated environments.</p>
+          <ul class="tags"><li>Python</li><li>Reinforcement Learning</li></ul>
+          <div class="actions">
+            <a class="btn small" href="https://github.com/h-dhatt/multi-armed-bandits-rl" target="_blank" rel="noopener">Repo</a>
+          </div>
+        </article>
+
+        <article class="project reveal">
+          <div class="badge">Finance</div>
+          <h3>Portfolio Optimization</h3>
+          <p>Mean-variance optimization with efficient frontier construction and ML-based covariance estimators. Backtested on financial data.</p>
+          <ul class="tags"><li>Python</li><li>Finance</li><li>ML</li></ul>
+          <div class="actions">
+            <a class="btn small" href="https://github.com/h-dhatt/portfolio-optimization-ml" target="_blank" rel="noopener">Repo</a>
+          </div>
+        </article>
+
+        <article class="project reveal">
+          <div class="badge">Econometrics</div>
+          <h3>Causal Inference: DiD</h3>
+          <p>Policy evaluation via treatment effect estimation using Difference-in-Differences with robustness checks.</p>
+          <ul class="tags"><li>Python</li><li>Econometrics</li></ul>
+          <div class="actions">
+            <a class="btn small" href="https://github.com/h-dhatt/causal-inference-did" target="_blank" rel="noopener">Repo</a>
+          </div>
+        </article>
+
+        <article class="project reveal">
+          <div class="badge">Time Series</div>
+          <h3>Forecasting Models</h3>
+          <p>Forecasting economic and financial series with ARIMA, VAR, boosting, and LSTM. Evaluated using rolling-window cross-validation.</p>
+          <ul class="tags"><li>Python</li><li>Time Series</li><li>ML</li></ul>
+          <div class="actions">
+            <a class="btn small" href="https://github.com/h-dhatt/time-series-forecasting" target="_blank" rel="noopener">Repo</a>
+          </div>
+        </article>
       </div>
     </section>
 
@@ -158,9 +196,7 @@
         <h2 id="playground-title">Playground</h2>
         <p class="muted">Tiny experiments, interactive bits, and fun demos.</p>
       </div>
-
       <div id="playground-cards" class="cards"></div>
-
       <div class="no-js-only">
         <p class="muted">Playground items need JavaScript to render here. You can also browse them on GitHub:</p>
         <p><a class="btn" href="https://github.com/h-dhatt?tab=repositories" target="_blank" rel="noopener">Open all repositories</a></p>
