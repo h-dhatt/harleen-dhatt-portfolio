@@ -1,121 +1,89 @@
-<section id="projects" class="projects-section">
-  <h1>Projects</h1>
+<!-- ===== START Projects Section (h-dhatt) ===== -->
+
+<style>
+/* ==== Project cards (drop-in) ==== */
+.projects-wrap{max-width:1100px;margin:0 auto;padding:24px;}
+.projects-wrap h2{font-size:2rem;margin:0 0 12px;}
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:12px;}
+.project-card{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:16px;box-shadow:0 1px 3px rgba(0,0,0,.06);display:flex;flex-direction:column}
+.project-card h3{margin:8px 0 6px;font-size:1.1rem}
+.project-card p{margin:0 0 10px;color:#4b5563;line-height:1.45}
+.project-tags{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 12px}
+.project-tags span{background:#f3f4f6;border:1px solid #e5e7eb;border-radius:999px;padding:4px 10px;font-size:.8rem}
+.project-links{margin-top:auto;display:flex;gap:10px;flex-wrap:wrap}
+.project-links a{display:inline-block;text-decoration:none;border:1px solid #111827;border-radius:8px;padding:6px 10px;font-weight:600;transition:transform .04s ease}
+.project-links a:hover{transform:translateY(-1px)}
+/* Dark-mode friendly-ish */
+@media(prefers-color-scheme:dark){
+  .project-card{background:#0b0b0c;border-color:#1f2937;box-shadow:none}
+  .project-card p{color:#cbd5e1}
+  .project-tags span{background:#111827;border-color:#1f2937;color:#e5e7eb}
+  .project-links a{border-color:#e5e7eb;color:#e5e7eb}
+}
+</style>
+
+<section id="projects" class="projects-wrap">
+  <h2>Projects</h2>
+  <p>Selected work — each card links to its repository.</p>
 
   <div class="projects-grid">
 
-    <!-- Project 1 -->
     <article class="project-card">
-      <img src="assets/img/diabetes-thumb.jpg" alt="Diabetes OLS project thumbnail" loading="lazy">
-      <h2>daibete-stats-ols</h2>
-      <p>OLS regression analysis on diabetes dataset: feature engineering, diagnostics, and interpretation.</p>
-      <div class="tags">
-        <span>Python</span><span>Pandas</span><span>Statsmodels</span><span>OLS</span>
+      <h3>Diabetes Stats — OLS</h3>
+      <p>Linear regression (OLS) on a diabetes dataset: preprocessing, feature selection, diagnostics, residual analysis, and error metrics.</p>
+      <div class="project-tags">
+        <span>Python</span><span>StatsModels</span><span>OLS</span><span>EDA</span>
       </div>
-      <div class="links">
-        <a href="https://github.com/USERNAME/daibete-stats-ols" target="_blank" rel="noopener">Repo</a>
-        <a href="https://github.com/USERNAME/daibete-stats-ols#readme" target="_blank" rel="noopener">README</a>
-        <a href="https://USERNAME.github.io/daibete-stats-ols" target="_blank" rel="noopener">Demo/Notebook</a>
+      <div class="project-links">
+        <a href="https://github.com/h-dhatt/daibete-stats-ols" target="_blank" rel="noopener">View Repo</a>
       </div>
     </article>
 
-    <!-- Project 2 -->
     <article class="project-card">
-      <img src="assets/img/numerical-methods-thumb.jpg" alt="Numerical methods project thumbnail" loading="lazy">
-      <h2>numerical-methods-euler-rk4</h2>
-      <p>ODE solvers from scratch (Euler, RK4) with stability/accuracy comparison and visualizations.</p>
-      <div class="tags">
-        <span>Python</span><span>NumPy</span><span>Matplotlib</span><span>ODEs</span>
+      <h3>Numerical Methods — Euler &amp; RK4</h3>
+      <p>Solving ODEs with explicit Euler and Runge–Kutta (RK4). Stability, error vs. step size, and comparisons to analytic solutions.</p>
+      <div class="project-tags">
+        <span>Python</span><span>Numerical Analysis</span><span>Euler</span><span>RK4</span>
       </div>
-      <div class="links">
-        <a href="https://github.com/USERNAME/numerical-methods-euler-rk4" target="_blank" rel="noopener">Repo</a>
-        <a href="https://github.com/USERNAME/numerical-methods-euler-rk4#readme" target="_blank" rel="noopener">README</a>
-        <a href="https://USERNAME.github.io/numerical-methods-euler-rk4" target="_blank" rel="noopener">Demo/Notebook</a>
+      <div class="project-links">
+        <a href="https://github.com/h-dhatt/numerical-methods-euler-rk4" target="_blank" rel="noopener">View Repo</a>
       </div>
     </article>
 
-    <!-- Project 3 -->
     <article class="project-card">
-      <img src="assets/img/breastcancer-thumb.jpg" alt="Breast cancer ML project thumbnail" loading="lazy">
-      <h2>breastcancer-ml-classifiers</h2>
-      <p>Supervised models for diagnosis (e.g., logistic regression, k-NN, SVM, random forest) on the WBC dataset.</p>
-      <div class="tags">
-        <span>Python</span><span>scikit-learn</span><span>Classification</span>
+      <h3>Breast Cancer ML — Classifiers</h3>
+      <p>Benchmarking classic classifiers for breast cancer diagnosis (e.g., Logistic Regression, k-NN, SVM, Random Forest) with cross-validation.</p>
+      <div class="project-tags">
+        <span>Python</span><span>scikit-learn</span><span>Classification</span><span>Model Eval</span>
       </div>
-      <div class="links">
-        <a href="https://github.com/USERNAME/breastcancer-ml-classifiers" target="_blank" rel="noopener">Repo</a>
-        <a href="https://github.com/USERNAME/breastcancer-ml-classifiers#readme" target="_blank" rel="noopener">README</a>
-        <a href="https://USERNAME.github.io/breastcancer-ml-classifiers" target="_blank" rel="noopener">Demo/Notebook</a>
+      <div class="project-links">
+        <a href="https://github.com/h-dhatt/breastcancer-ml-classifiers" target="_blank" rel="noopener">View Repo</a>
       </div>
     </article>
 
-    <!-- Project 4 -->
     <article class="project-card">
-      <img src="assets/img/probability-sim-thumb.jpg" alt="Probability simulation project thumbnail" loading="lazy">
-      <h2>probability-simulation-montecarlo</h2>
-      <p>Monte Carlo simulations for distributions, random walks, and law of large numbers experiments.</p>
-      <div class="tags">
-        <span>Python</span><span>Simulation</span><span>Monte Carlo</span>
+      <h3>Probability Simulation — Monte Carlo</h3>
+      <p>Random simulation of probability problems; Monte Carlo estimation and convergence diagnostics for distributions and events.</p>
+      <div class="project-tags">
+        <span>Python</span><span>Monte Carlo</span><span>Simulation</span><span>Probability</span>
       </div>
-      <div class="links">
-        <a href="https://github.com/USERNAME/probability-simulation-montecarlo" target="_blank" rel="noopener">Repo</a>
-        <a href="https://github.com/USERNAME/probability-simulation-montecarlo#readme" target="_blank" rel="noopener">README</a>
-        <a href="https://USERNAME.github.io/probability-simulation-montecarlo" target="_blank" rel="noopener">Demo/Notebook</a>
+      <div class="project-links">
+        <a href="https://github.com/h-dhatt/probability-simulation-montecarlo" target="_blank" rel="noopener">View Repo</a>
       </div>
     </article>
 
-    <!-- Project 5 -->
     <article class="project-card">
-      <img src="assets/img/finance-gbm-thumb.jpg" alt="Finance GBM project thumbnail" loading="lazy">
-      <h2>finance-simulation-gbm</h2>
-      <p>Geometric Brownian Motion for asset paths, pricing experiments, and parameter sensitivity.</p>
-      <div class="tags">
-        <span>Python</span><span>Stochastic</span><span>Finance</span><span>GBM</span>
+      <h3>Finance Simulation — GBM</h3>
+      <p>Geometric Brownian Motion for asset paths; pricing intuition via simulated trajectories and basic option pricing experiments.</p>
+      <div class="project-tags">
+        <span>Python</span><span>Stochastic Processes</span><span>GBM</span><span>Finance</span>
       </div>
-      <div class="links">
-        <a href="https://github.com/USERNAME/finance-simulation-gbm" target="_blank" rel="noopener">Repo</a>
-        <a href="https://github.com/USERNAME/finance-simulation-gbm#readme" target="_blank" rel="noopener">README</a>
-        <a href="https://USERNAME.github.io/finance-simulation-gbm" target="_blank" rel="noopener">Demo/Notebook</a>
+      <div class="project-links">
+        <a href="https://github.com/h-dhatt/finance-simulation-gbm" target="_blank" rel="noopener">View Repo</a>
       </div>
     </article>
 
   </div>
 </section>
 
-<style>
-  .projects-section { max-width: 1100px; margin: 0 auto; padding: 2rem 1rem 4rem; }
-  .projects-section h1 { font-size: 2rem; margin-bottom: 1.25rem; }
-  .projects-grid {
-    display: grid; gap: 1.25rem;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  }
-  .project-card {
-    border: 1px solid #e5e7eb; border-radius: 12px; padding: 1rem;
-    background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.04);
-    display: flex; flex-direction: column; gap: .75rem;
-    transition: transform .12s ease, box-shadow .12s ease;
-  }
-  .project-card:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0,0,0,.08); }
-  .project-card img {
-    width: 100%; height: 150px; object-fit: cover; border-radius: 8px; background: #f6f7f9;
-  }
-  .project-card h2 { font-size: 1.1rem; margin: 0; }
-  .project-card p { margin: 0; color: #444; line-height: 1.45; }
-  .tags { display: flex; flex-wrap: wrap; gap: .4rem; }
-  .tags span {
-    font-size: .75rem; padding: .25rem .5rem; border-radius: 999px; background: #f3f4f6; color: #111827;
-    border: 1px solid #e5e7eb;
-  }
-  .links { display: flex; gap: .6rem; flex-wrap: wrap; margin-top: .25rem; }
-  .links a {
-    font-size: .85rem; text-decoration: none; border: 1px solid #e5e7eb; padding: .35rem .6rem; border-radius: 8px;
-    background: #fafafa;
-  }
-  .links a:hover { background: #f0f0f0; }
-  @media (prefers-color-scheme: dark) {
-    .project-card { background: #0b0d10; border-color: #1f2937; }
-    .project-card p { color: #cbd5e1; }
-    .tags span { background: #111827; color: #e5e7eb; border-color: #1f2937; }
-    .links a { background: #0f141b; border-color: #1f2937; color: #e5e7eb; }
-    .links a:hover { background: #111827; }
-  }
-</style>
+<!-- ===== END Projects Section (h-dhatt) ===== -->
