@@ -3,199 +3,191 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Harleen Dhatt · Data · Economics · Analytics</title>
-  <meta name="description" content="Harleen Dhatt — Mathematics & Statistics with Economics. Econometrics, ML for classification, numerical methods, and reproducible analytics." />
+  <title>Harleen Dhatt · Portfolio</title>
+  <meta name="description" content="Projects, experiments, and notes by Harleen Dhatt." />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
   <link rel="icon" href="assets/favicon.png" />
-  <meta property="og:title" content="Harleen Dhatt · Data · Economics · Analytics">
-  <meta property="og:description" content="Econometrics, ML, numerical methods—clean, reproducible analysis.">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="assets/og-card.png">
-  <meta name="theme-color" content="#0f172a">
+  <meta name="theme-color" content="#181826" />
   <script>
-    // Theme as early as possible to avoid FOUC
+    // set theme asap to avoid flash
     (() => {
       const saved = localStorage.getItem('theme');
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const theme = saved || (prefersDark ? 'dark' : 'light');
-      document.documentElement.dataset.theme = theme;
+      const prefers = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light';
+      document.documentElement.dataset.theme = saved || prefers;
     })();
   </script>
 </head>
 <body>
-  <header class="site-header">
+  <header class="site-header" id="top">
     <a class="brand" href="#top" aria-label="Home">
-      <span class="brand-mark">HD</span>
+      <span class="logo">HD</span>
       <span class="brand-text">Harleen Dhatt</span>
     </a>
 
     <nav class="nav" aria-label="Primary">
       <a href="#projects">Projects</a>
       <a href="#skills">Skills</a>
-      <a href="#highlights">Highlights</a>
+      <a href="#playground">Playground</a>
       <a href="Harleen-Dhatt-Resume.pdf" target="_blank" rel="noopener">Resume</a>
       <a href="#contact">Contact</a>
     </nav>
 
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
-      <span aria-hidden="true">◐</span>
-    </button>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">◐</button>
   </header>
 
-  <!-- Decorative gradient/background -->
-  <div class="bg-aurora" aria-hidden="true"></div>
+  <!-- background paints -->
+  <div class="bg">
+    <span class="blob b1" aria-hidden="true"></span>
+    <span class="blob b2" aria-hidden="true"></span>
+    <span class="blob b3" aria-hidden="true"></span>
+  </div>
 
-  <main id="top">
+  <main>
     <!-- HERO -->
-    <section class="section hero">
-      <p class="kicker">Data • Economics • Programming</p>
+    <section class="hero section">
+      <p class="kicker">data · code · clarity</p>
       <h1 class="hero-title">
-        Hi, I’m <span class="underline">Harleen Dhatt</span>.
+        Hi, I’m <span class="gradient-text">Harleen</span>.
       </h1>
-      <p class="hero-subtitle">
-        I study Mathematics & Statistics with Economics and build carefully argued, well-documented analyses.
-        My work spans econometrics, ML for classification, simulation, and mathematical computing.
+      <p class="hero-sub">
+        I explore mathematics, statistics, and economics through code—building tidy analyses,
+        clear visuals, and small tools that make ideas click.
       </p>
       <div class="hero-ctas">
-        <a class="btn primary" href="#projects">See Projects</a>
-        <a class="btn ghost" href="Harleen-Dhatt-Resume.pdf" target="_blank" rel="noopener">Download CV</a>
+        <a class="btn primary" href="#projects">Explore Projects</a>
+        <a class="btn ghost" href="Harleen-Dhatt-Resume.pdf" target="_blank" rel="noopener">Download Resume</a>
       </div>
-
-      <ul class="chip-row" aria-label="Primary toolset">
-        <li>Python</li><li>R</li><li>SQL</li><li>StatsModels</li><li>scikit-learn</li><li>Matplotlib</li>
+      <ul class="stack" aria-label="Tech I use">
+        <li>Python</li><li>R</li><li>SQL</li><li>pandas</li><li>scikit-learn</li><li>statsmodels</li><li>Matplotlib</li>
       </ul>
     </section>
 
     <!-- HIGHLIGHTS -->
-    <section class="section grid-2" id="highlights">
+    <section class="section highlights" id="highlights">
       <div class="card">
-        <h2 class="eyebrow">What I’m great at</h2>
+        <h2 class="eyebrow">Focus</h2>
         <ul class="list">
-          <li>Turning messy data into clean, analyzable datasets</li>
-          <li>Explaining results clearly — visuals + concise writing</li>
-          <li>Building reproducible notebooks & reports</li>
+          <li>Econometrics & model diagnostics</li>
+          <li>Classification & evaluation</li>
+          <li>Numerical methods & simulation</li>
         </ul>
-
-        <div class="pill-stack">
-          <span class="pill">Econometrics: OLS, GLMs, Diagnostics</span>
-          <span class="pill">ML: Logit, SVM, RF, CV</span>
-          <span class="pill">Math Comp: ODEs, RK4, Monte Carlo</span>
-        </div>
       </div>
-
       <div class="card">
-        <h2 class="eyebrow">Recent Coursework</h2>
+        <h2 class="eyebrow">How I work</h2>
         <ul class="list">
-          <li>Econometrics & Statistical Inference</li>
-          <li>Numerical Methods & ODEs</li>
-          <li>Machine Learning for Classification</li>
+          <li>Reproducible notebooks and readable code</li>
+          <li>Thoughtful visualizations</li>
+          <li>Concise documentation with context</li>
         </ul>
-
-        <h3 class="eyebrow mt">What I value</h3>
-        <p>
-          Clarity, reproducibility, and honest uncertainty. I annotate code, version results, and document decisions.
-        </p>
       </div>
     </section>
 
     <!-- SKILLS -->
     <section class="section" id="skills" aria-labelledby="skills-title">
-      <h2 id="skills-title">Toolbox</h2>
-      <ul class="chip-cloud">
+      <h2 id="skills-title">Skills</h2>
+      <ul class="cloud">
         <li>Python</li><li>R</li><li>SQL</li><li>Pandas</li><li>NumPy</li>
-        <li>StatsModels</li><li>scikit-learn</li><li>Tableau</li><li>Matplotlib</li>
+        <li>scikit-learn</li><li>StatsModels</li><li>Tableau</li><li>Matplotlib</li><li>EDA</li>
       </ul>
     </section>
 
     <!-- PROJECTS -->
     <section class="section" id="projects" aria-labelledby="projects-title">
       <div class="section-head">
-        <h2 id="projects-title">Featured Projects</h2>
-        <a class="link" href="projects.html">View all</a>
+        <h2 id="projects-title">Projects</h2>
+        <!-- change this link if you add a separate page -->
+        <!-- <a class="link" href="projects.html">View all</a> -->
       </div>
 
       <div class="cards">
-        <!-- Diabetes OLS -->
-        <article class="project-card reveal">
-          <div class="pc-body">
-            <h3>Diabetes Stats — OLS</h3>
-            <p>End-to-end OLS: preprocessing, diagnostics, and error analysis on a real dataset.</p>
-            <ul class="tags"><li>Python</li><li>StatsModels</li><li>EDA</li></ul>
-          </div>
-          <div class="pc-actions">
+        <article class="project reveal">
+          <div class="badge">Analysis</div>
+          <h3>Diabetes: OLS end-to-end</h3>
+          <p>Pipeline with EDA, feature prep, OLS, assumptions checks, and error analysis.</p>
+          <ul class="tags"><li>Python</li><li>pandas</li><li>statsmodels</li></ul>
+          <div class="actions">
             <a class="btn small" href="https://github.com/h-dhatt" target="_blank" rel="noopener">Repo</a>
           </div>
         </article>
 
-        <!-- Breast Cancer ML -->
-        <article class="project-card reveal">
-          <div class="pc-body">
-            <h3>Breast Cancer ML — Classifiers</h3>
-            <p>Logit, k-NN, SVM, and Random Forest; cross-validation and model comparison.</p>
-            <ul class="tags"><li>Python</li><li>scikit-learn</li></ul>
-          </div>
-          <div class="pc-actions">
+        <article class="project reveal">
+          <div class="badge">ML</div>
+          <h3>Breast Cancer: model comparison</h3>
+          <p>Logit, k-NN, SVM, and Random Forest with cross-validation and metrics dashboard.</p>
+          <ul class="tags"><li>Python</li><li>scikit-learn</li><li>EDA</li></ul>
+          <div class="actions">
             <a class="btn small" href="https://github.com/h-dhatt" target="_blank" rel="noopener">Repo</a>
           </div>
         </article>
 
-        <!-- Numerical Methods -->
-        <article class="project-card reveal">
-          <div class="pc-body">
-            <h3>Numerical Methods — Euler & RK4</h3>
-            <p>Explicit Euler vs. RK4 for ODEs; stability and error vs. step size.</p>
-            <ul class="tags"><li>Python</li><li>Numerical Analysis</li></ul>
-          </div>
-          <div class="pc-actions">
+        <article class="project reveal">
+          <div class="badge">Numerics</div>
+          <h3>ODEs: Euler vs RK4</h3>
+          <p>Accuracy/stability versus step size; visual comparisons and timing notes.</p>
+          <ul class="tags"><li>Python</li><li>Numerical</li></ul>
+          <div class="actions">
             <a class="btn small" href="https://github.com/h-dhatt" target="_blank" rel="noopener">Repo</a>
           </div>
         </article>
       </div>
     </section>
 
-    <!-- MINI GAMES (fallback text retained) -->
-    <section class="section">
+    <!-- PLAYGROUND -->
+    <section class="section" id="playground" aria-labelledby="playground-title">
       <div class="section-head">
-        <h2>Mini Games (2022)</h2>
-        <a class="link" href="projects.html#games">See all</a>
+        <h2 id="playground-title">Playground</h2>
+        <p class="muted">Tiny experiments, interactive bits, and fun demos.</p>
       </div>
-      <p class="muted">Enable JavaScript to load the games showcase.</p>
+
+      <div class="cards">
+        <article class="project reveal">
+          <div class="badge badge-soft">Interactive</div>
+          <h3>Canvas Toy</h3>
+          <p>Simple canvas play area with shapes and easing.</p>
+          <div class="actions">
+            <a class="btn small" href="#" aria-disabled="true">Demo</a>
+          </div>
+        </article>
+
+        <article class="project reveal">
+          <div class="badge badge-soft">Experiment</div>
+          <h3>Color Sampler</h3>
+          <p>A tiny tool for building harmonious palettes.</p>
+          <div class="actions">
+            <a class="btn small" href="#" aria-disabled="true">Demo</a>
+          </div>
+        </article>
+
+        <article class="project reveal">
+          <div class="badge badge-soft">Puzzle</div>
+          <h3>Grid Moves</h3>
+          <p>Grid-based logic mini with keyboard controls.</p>
+          <div class="actions">
+            <a class="btn small" href="#" aria-disabled="true">Demo</a>
+          </div>
+        </article>
+      </div>
     </section>
 
     <!-- CONTACT -->
     <section class="section contact" id="contact">
-      <h2>Let’s talk</h2>
-      <p>Reach out for research collaborations, internships, or questions about my projects.</p>
+      <h2>Contact</h2>
+      <p>Say hi — I’m open to collaborations and interesting problems.</p>
       <div class="contact-actions">
-        <a class="btn primary" href="mailto:harleen.dhatt@gmail.com">Email me</a>
+        <a class="btn primary" href="mailto:harleen.dhatt@gmail.com">Email</a>
         <a class="btn ghost" href="https://www.linkedin.com/in/harleen-dhatt" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn ghost" href="https://github.com/h-dhatt" target="_blank" rel="noopener">GitHub</a>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <p>© <span id="year"></span> Harleen Dhatt</p>
-    <a class="link" href="#projects">Back to top</a>
+    <a class="link" href="#top">Back to top</a>
   </footer>
-
-  <!-- Structured data for admissions/ATS -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Harleen Dhatt",
-    "url": "https://h-dhatt.github.io/harleen-dhatt-portfolio/",
-    "sameAs": [
-      "https://www.linkedin.com/in/harleen-dhatt",
-      "https://github.com/h-dhatt"
-    ],
-    "knowsAbout": ["Econometrics","Machine Learning","Statistics","Numerical Methods","Python","R","SQL"]
-  }
-  </script>
 
   <script src="script.js" defer></script>
 </body>
 </html>
-
