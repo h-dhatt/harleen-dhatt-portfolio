@@ -1,25 +1,25 @@
-// Theme toggle
+// theme toggle
 const toggle = document.getElementById('themeToggle');
-if (toggle) {
+if (toggle){
   toggle.addEventListener('click', () => {
-    const root = document.documentElement;
-    const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
-    root.dataset.theme = next;
+    const r = document.documentElement;
+    const next = r.dataset.theme === 'dark' ? 'light' : 'dark';
+    r.dataset.theme = next;
     localStorage.setItem('theme', next);
   });
 }
 
-// Year in footer
+// year
 document.getElementById('year').textContent = new Date().getFullYear();
 
-// Simple scroll reveal for project cards
-const observer = new IntersectionObserver((entries) => {
-  for (const e of entries) {
-    if (e.isIntersecting) {
+// reveal projects on scroll
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting){
       e.target.classList.add('is-visible');
-      observer.unobserve(e.target);
+      io.unobserve(e.target);
     }
-  }
+  });
 }, { threshold: 0.12 });
 
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
