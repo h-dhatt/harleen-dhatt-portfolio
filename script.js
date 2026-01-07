@@ -1,13 +1,39 @@
 // theme toggle
-const toggle = document.getElementById('themeToggle');
-if (toggle){
-  toggle.addEventListener('click', () => {
-    const r = document.documentElement;
-    const next = r.dataset.theme === 'dark' ? 'light' : 'dark';
-    r.dataset.theme = next;
-    localStorage.setItem('theme', next);
-  });
+// ===== Light mode default (with saved preference) =====
+const THEME_KEY = "theme";
+const root = document.documentElement; // <html>
+const toggleBtn = document.getElementById("theme-toggle"); // change id if needed
+
+function applyTheme(theme) {
+  // theme: "light" | "dark"
+  root.setAttribute("data-theme", theme);
+
+  // Optional: update button icon/text
+  if (toggleBtn) {
+    toggleBtn.setAttribute(
+      "aria-label",
+      theme === "dark" ? "Switch to light mode" : "Switch to dark mode"
+    );
+    // You can swap these for your own icons/text
+    toggleBtn.textContent = theme === "dark" ? "☀️" : "🌙";
+  }
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Default is LIGHT unless user saved "dark"
+  const saved = localStorage.getItem(THEME_KEY);
+  const startingTheme = saved === "dark" ? "dark" : "light";
+  applyTheme(startingTheme);
+
+  if (toggleBtn) {
+    toggleBtn.addEventListener("click", () => {
+      const current = root.getAttribute("data-theme") === "dark" ? "dark" : "light";
+      const next = current === "dark" ? "light" : "dark";
+      localStorage.setItem(THEME_KEY, next);
+      applyTheme(next);
+    });
+  }
+});
 
 // year
 document.getElementById('year').textContent = new Date().getFullYear();
