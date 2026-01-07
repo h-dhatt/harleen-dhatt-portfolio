@@ -119,8 +119,40 @@ body{
 .list{margin:0; padding-left:1.1rem}
 
 /* skills */
-.cloud{list-style:none; padding:0; margin:.6rem 0 0; display:flex; gap:.5rem; flex-wrap:wrap}
-.cloud li{border:1px solid var(--line); background:var(--panel); padding:.42rem .75rem; border-radius:12px}
+.skills-section {
+  text-align: center;
+  padding: 4rem 1rem;
+}
+
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.skill-category {
+  background: var(--card-bg, #f8f8f8);
+  border-radius: 8px;
+  padding: 1.5rem;
+  width: 220px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.skill-category h3 {
+  margin-bottom: 0.75rem;
+}
+
+.skill-category ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.skill-category li {
+  margin: 0.4rem 0;
+}
 
 /* project & playground grids */
 .section-head{display:flex; align-items:baseline; justify-content:space-between; gap:1rem}
