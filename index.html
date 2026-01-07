@@ -13,7 +13,7 @@
   <script>
     document.documentElement.classList.add('js');
     const saved = localStorage.getItem('theme');
-    const prefers = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light';
+    const prefers = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light':'dark';
     document.documentElement.dataset.theme = saved || prefers;
   </script>
 </head>
@@ -32,7 +32,7 @@
       <a href="#contact">Contact</a>
     </nav>
 
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">◐</button>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle light mode">◐</button>
   </header>
 
   <div class="bg" aria-hidden="true">
