@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -18,19 +18,17 @@
   </script>
 </head>
 <body>
-  <header class="site-header" id="top">
-    <a class="brand" href="#top" aria-label="Home">
-      <span class="logo">HD</span>
-      <span class="brand-text">Harleen Dhatt</span>
-    </a>
-
-    <nav class="nav" aria-label="Primary">
-      <a href="#projects">Projects</a>
-      <a href="#skills">Skills</a>
-      <a href="#playground">Playground</a>
-      <a href="Harleen-Dhatt-Resume.pdf" target="_blank" rel="noopener">Resume</a>
-      <a href="#contact">Contact</a>
-    </nav>
+  <!-- ===== HERO SECTION ===== -->
+<header id="hero" class="hero-section">
+  <div class="hero-overlay">
+    <h1>Harleen Dhatt</h1>
+    <p class="tagline">Data analyst using SQL + Python to turn messy data into clear, cozy insights.</p>
+    <div class="hero-buttons">
+      <a href="#projects" class="btn">Explore Projects</a>
+      <a href="HarleenDhatt_Resume.pdf" class="btn-outline">Download Resume</a>
+    </div>
+  </div>
+</header>
 
     <button class="theme-toggle" id="themeToggle" aria-label="Toggle light mode">◐</button>
   </header>
@@ -60,36 +58,20 @@
     <!-- ===== SKILLS SECTION ===== -->
 <section id="skills" class="skills-section">
   <h2>Skills</h2>
-  </p>
+  <p class="skills-intro">The tools and techniques I use for data analysis and visualization.</p>
 
   <div class="skills-grid">
-    <div class="skill-category">
+    <div class="skill-card">
       <h3>Core Tools</h3>
-      <ul>
-        <li>SQL</li>
-        <li>Python</li>
-        <li>Excel</li>
-        <li>Tableau</li>
-        <li>Power BI</li>
-      </ul>
+      <p>SQL, Python, Excel, Tableau, Power BI</p>
     </div>
-
-    <div class="skill-category">
+    <div class="skill-card">
       <h3>Python Stack</h3>
-      <ul>
-        <li>Pandas</li>
-        <li>NumPy</li>
-        <li>Matplotlib</li>
-      </ul>
+      <p>Pandas, NumPy, Matplotlib</p>
     </div>
-
-    <div class="skill-category">
+    <div class="skill-card">
       <h3>Bonus</h3>
-      <ul>
-        <li>R</li>
-        <li>Jupyter / Notebooks</li>
-        <li>Git / GitHub</li>
-      </ul>
+      <p>R, Jupyter, Git / GitHub</p>
     </div>
   </div>
 </section>
