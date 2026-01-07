@@ -118,29 +118,47 @@ body{
 }
 .list{margin:0; padding-left:1.1rem}
 
-/* skills */
+/* ===== SKILLS ===== */
 .skills-section {
   text-align: center;
-  padding: 4rem 1rem;
+  padding: 3rem 1rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.skills-section h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.skills-intro {
+  color: var(--text-secondary, #666);
+  margin-bottom: 2rem;
+  font-size: 1.05rem;
 }
 
 .skills-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
-  margin-top: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
 }
 
 .skill-category {
-  background: var(--card-bg, #f8f8f8);
-  border-radius: 8px;
-  padding: 1.5rem;
-  width: 220px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  background: var(--card-bg, #fafafa);
+  border-radius: 10px;
+  padding: 1.2rem 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.skill-category:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .skill-category h3 {
+  font-weight: 600;
   margin-bottom: 0.75rem;
 }
 
@@ -151,7 +169,9 @@ body{
 }
 
 .skill-category li {
-  margin: 0.4rem 0;
+  margin: 0.3rem 0;
+  color: var(--text-color, #333);
+  font-size: 0.95rem;
 }
 
 /* project & playground grids */
