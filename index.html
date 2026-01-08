@@ -1,411 +1,337 @@
 <!doctype html>
-<html lang="en" data-theme="auto">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <title>Harleen Dhatt · Data Analytics Portfolio</title>
     <meta
       name="description"
-      content="Harleen Dhatt — Data analyst using SQL + Python to turn messy data into dashboards, insights, and clear decisions."
+      content="Harleen Dhatt — Data analyst using SQL + Python to turn messy data into clear, cozy insights."
     />
+    <title>Harleen Dhatt · Portfolio</title>
 
-    <!-- Open Graph -->
-    <meta property="og:title" content="Harleen Dhatt · Data Analytics Portfolio" />
-    <meta
-      property="og:description"
-      content="SQL + Python projects: retention analytics, experimentation, data quality pipelines, and executive storytelling."
-    />
-    <meta property="og:type" content="website" />
-
-    <!-- Fonts (safe + classy). You can remove if you prefer system fonts only. -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500,700&family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
 
     <link rel="stylesheet" href="styles.css" />
-    <script defer src="script.js"></script>
   </head>
 
   <body>
-    <a class="skip-link" href="#main">Skip to content</a>
+    <!-- Ambient animated background -->
+    <canvas id="bg-canvas" aria-hidden="true"></canvas>
 
-    <!-- Top progress bar -->
-    <div class="scroll-progress" aria-hidden="true">
-      <div class="scroll-progress__bar" id="scrollProgressBar"></div>
-    </div>
-
-    <header class="site-header" id="top">
-      <nav class="nav container" aria-label="Primary">
+    <!-- Top nav -->
+    <header class="topbar" role="banner">
+      <nav class="nav" aria-label="Primary">
         <a class="brand" href="#top" aria-label="Go to top">
-          <span class="brand__mark" aria-hidden="true">HD</span>
-          <span class="brand__text">
-            <span class="brand__name">Harleen Dhatt</span>
-            <span class="brand__role">Data Analytics</span>
-          </span>
+          <span class="brand__dot" aria-hidden="true"></span>
+          <span class="brand__text">Harleen Dhatt</span>
         </a>
 
-        <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks">
-          <span class="sr-only">Open menu</span>
-          <span class="hamburger" aria-hidden="true"></span>
-        </button>
+        <div class="nav__links">
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#skills">Skills</a>
+          <a href="#contact">Contact</a>
+        </div>
 
-        <div class="nav__links" id="navLinks">
-          <a class="nav__link" href="#projects">Projects</a>
-          <a class="nav__link" href="#skills">Skills</a>
-          <a class="nav__link" href="#playground">Playground</a>
-          <a class="nav__link" href="#contact">Contact</a>
-
-          <a class="nav__cta" href="Harleen-Dhatt-Resume.pdf" target="_blank" rel="noreferrer">
-            Resume
+        <div class="nav__actions">
+          <a class="btn btn--ghost btn--sm" href="Harleen-Dhatt-Resume.pdf" target="_blank" rel="noreferrer">
+            Résumé
           </a>
 
-          <button class="theme-toggle" id="themeToggle" type="button">
-            <span class="theme-toggle__icon" aria-hidden="true">◐</span>
-            <span class="theme-toggle__text">Theme</span>
+          <button
+            id="themeToggle"
+            class="toggle"
+            type="button"
+            aria-label="Toggle theme"
+            aria-pressed="false"
+            title="Toggle theme"
+          >
+            <span class="toggle__icon" aria-hidden="true">◐</span>
           </button>
         </div>
       </nav>
     </header>
 
-    <main id="main">
-      <!-- HERO -->
-      <section class="hero">
-        <div class="hero__bg" aria-hidden="true">
-          <span class="blob blob--1"></span>
-          <span class="blob blob--2"></span>
-          <span class="blob blob--3"></span>
-          <span class="sparkles"></span>
-        </div>
-
-        <div class="container hero__content">
-          <div class="reveal">
-            <p class="hero__eyebrow">
-              Hi, I’m <span class="hero__name">Harleen</span> ✨
+    <main id="top">
+      <!-- Hero -->
+      <section class="hero section">
+        <div class="container hero__grid">
+          <div class="hero__copy">
+            <p class="pill reveal">
+              <span class="pill__spark" aria-hidden="true">✦</span>
+              Data Analytics · SQL · Python
             </p>
 
-            <h1 class="hero__title">
-              I turn messy data into
-              <span class="accent">decision-ready</span> insights.
+            <h1 class="reveal">
+              Turning <span class="accent">messy data</span> into
+              <span class="accent">clear decisions</span>—with a cozy, practical touch.
             </h1>
 
-            <p class="hero__subtitle">
-              Data analyst using <strong>SQL</strong> + <strong>Python</strong> to build clean
-              pipelines, clear KPIs, and dashboards people actually use.
+            <p class="lead reveal">
+              I build tidy datasets, trustworthy KPIs, and decision-ready insights.
+              My style is simple: make the numbers honest, then make the story easy to act on.
             </p>
 
-            <div class="hero__actions">
-              <a class="btn btn--primary" href="#projects">Explore projects</a>
+            <div class="hero__cta reveal">
+              <a class="btn" href="#projects">Explore projects</a>
               <a class="btn btn--ghost" href="Harleen-Dhatt-Resume.pdf" target="_blank" rel="noreferrer">
-                Download resume
+                Download résumé
               </a>
             </div>
 
-            <div class="hero__mini">
-              <div class="mini-card">
-                <div class="mini-card__kicker">Focus</div>
-                <div class="mini-card__value">Retention · Experimentation · Data Quality</div>
+            <div class="hero__meta reveal" aria-label="Highlights">
+              <div class="mini">
+                <div class="mini__kicker">Focus</div>
+                <div class="mini__value">Retention · Experimentation · QA</div>
               </div>
-              <div class="mini-card">
-                <div class="mini-card__kicker">Style</div>
-                <div class="mini-card__value">Clean metrics → clear story → confident decision</div>
+              <div class="mini">
+                <div class="mini__kicker">Strength</div>
+                <div class="mini__value">Clean pipelines + crisp writing</div>
               </div>
-            </div>
-          </div>
-
-          <a class="scroll-hint" href="#projects" aria-label="Scroll to projects">
-            <span aria-hidden="true">﹀</span>
-          </a>
-        </div>
-      </section>
-
-      <!-- ABOUT -->
-      <section class="section">
-        <div class="container grid-2">
-          <div class="reveal">
-            <h2 class="section__title">About</h2>
-            <p class="section__lead">
-              I like analytics that feels <em>useful</em>: definitions are crisp, numbers reconcile,
-              and the “so what?” is obvious.
-            </p>
-
-            <div class="prose">
-              <p>
-                My approach is simple: start with the decision, build trustworthy data behind it,
-                and communicate results in a way a busy reader can absorb in one pass.
-              </p>
-              <p>
-                I’m especially drawn to retention + growth questions (funnels, cohorts, experiments),
-                and to the unglamorous work that makes everything reliable (cleaning rules, QA checks,
-                and reproducible analysis).
-              </p>
-            </div>
-          </div>
-
-          <div class="reveal about-card" role="note" aria-label="Highlights">
-            <div class="about-card__header">
-              <div class="avatar" aria-hidden="true">
-                <span class="avatar__text">HD</span>
-              </div>
-              <div>
-                <div class="about-card__title">What you’ll see here</div>
-                <div class="about-card__subtitle">A few projects, written like deliverables.</div>
+              <div class="mini">
+                <div class="mini__kicker">Toolbox</div>
+                <div class="mini__value">SQL · Python · BI</div>
               </div>
             </div>
-
-            <ul class="checklist">
-              <li><span class="checklist__dot" aria-hidden="true"></span> KPI tables + dashboard thinking</li>
-              <li><span class="checklist__dot" aria-hidden="true"></span> Cohorts, lift, segmentation</li>
-              <li><span class="checklist__dot" aria-hidden="true"></span> QA rules that prevent “silent” data bugs</li>
-              <li><span class="checklist__dot" aria-hidden="true"></span> Writing that’s executive-friendly</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <!-- PROJECTS -->
-      <section class="section section--tint" id="projects">
-        <div class="container">
-          <div class="section__head reveal">
-            <h2 class="section__title">Projects</h2>
-            <p class="section__lead">
-              Click a project for the full story: goal → approach → outputs → links.
-            </p>
           </div>
 
-          <div class="filters reveal" aria-label="Project filters">
-            <button class="chip is-active" type="button" data-filter="all">Show all</button>
-            <button class="chip" type="button" data-filter="sql">SQL</button>
-            <button class="chip" type="button" data-filter="python">Python</button>
-            <button class="chip" type="button" data-filter="experiment">Experimentation</button>
-            <button class="chip" type="button" data-filter="quality">Data Quality</button>
-            <button class="chip" type="button" data-filter="story">Storytelling</button>
-          </div>
-
-          <div class="projects-grid" id="projectsGrid" aria-live="polite"></div>
-
-          <div class="reveal note">
-            <span class="note__icon" aria-hidden="true">✿</span>
-            <p class="note__text">
-              Want more? My GitHub has smaller exercises and drafts too.
-              <a href="https://github.com/h-dhatt?tab=repositories" target="_blank" rel="noreferrer">Browse all repositories</a>.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <!-- SKILLS -->
-      <section class="section" id="skills">
-        <div class="container">
-          <div class="section__head reveal">
-            <h2 class="section__title">Skills</h2>
-            <p class="section__lead">
-              Tools I reach for most often—plus the stuff I use to make work repeatable and shareable.
-            </p>
-          </div>
-
-          <div class="skills-grid">
-            <article class="skill-card reveal">
-              <h3 class="skill-card__title">Core</h3>
-              <div class="tags">
-                <span class="tag">SQL</span>
-                <span class="tag">Python</span>
-                <span class="tag">Excel</span>
-                <span class="tag">Tableau</span>
-                <span class="tag">Power BI</span>
+          <div class="hero__card reveal" aria-label="Quick intro card">
+            <div class="card">
+              <div class="card__top">
+                <div class="avatar" aria-hidden="true">
+                  <span>HD</span>
+                </div>
+                <div>
+                  <div class="card__title">Hi, I’m Harleen.</div>
+                  <div class="card__subtitle">Data analyst · dashboards · experiments</div>
+                </div>
               </div>
-              <p class="skill-card__desc">
-                KPI definition, funnel logic, cohort retention, tidy reporting—built for clarity.
-              </p>
-            </article>
 
-            <article class="skill-card reveal">
-              <h3 class="skill-card__title">Python stack</h3>
-              <div class="tags">
-                <span class="tag">pandas</span>
-                <span class="tag">NumPy</span>
-                <span class="tag">Matplotlib</span>
-                <span class="tag">Jupyter</span>
-              </div>
-              <p class="skill-card__desc">
-                Clean analysis notebooks, reproducible transforms, and plots that explain—not decorate.
-              </p>
-            </article>
-
-            <article class="skill-card reveal">
-              <h3 class="skill-card__title">Bonus</h3>
-              <div class="tags">
-                <span class="tag">R</span>
-                <span class="tag">Git / GitHub</span>
-                <span class="tag">QA checks</span>
-                <span class="tag">Docs & memos</span>
-              </div>
-              <p class="skill-card__desc">
-                I care about reliability and communication: testing assumptions, documenting decisions.
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- PLAYGROUND -->
-      <section class="section section--tint" id="playground">
-        <div class="container">
-          <div class="section__head reveal">
-            <h2 class="section__title">Playground</h2>
-            <p class="section__lead">
-              Tiny, interactive bits—because data should feel a little fun.
-            </p>
-          </div>
-
-          <div class="metrics-grid">
-            <div class="metric-card reveal">
-              <div class="metric-card__label">Quality checks I like</div>
-              <div class="metric-card__value" data-countup="12">0</div>
-              <div class="metric-card__hint">Row counts · nulls · uniques · ranges · joins</div>
-            </div>
-
-            <div class="metric-card reveal">
-              <div class="metric-card__label">Favorite deliverable</div>
-              <div class="metric-card__value">One-pager</div>
-              <div class="metric-card__hint">Problem → insight → recommendation</div>
-            </div>
-
-            <div class="metric-card reveal">
-              <div class="metric-card__label">Default mindset</div>
-              <div class="metric-card__value">“Define it.”</div>
-              <div class="metric-card__hint">Metrics first. Then analysis.</div>
-            </div>
-          </div>
-
-          <div class="reveal subtle-card">
-            <h3 class="subtle-card__title">Mini interaction</h3>
-            <p class="subtle-card__desc">
-              Tap to shuffle a “pretty” palette (purely cosmetic, but satisfying).
-            </p>
-            <button class="btn btn--soft" id="paletteShuffle" type="button">Shuffle palette</button>
-
-            <div class="palette" aria-label="Color palette preview">
-              <span class="swatch" aria-hidden="true"></span>
-              <span class="swatch" aria-hidden="true"></span>
-              <span class="swatch" aria-hidden="true"></span>
-              <span class="swatch" aria-hidden="true"></span>
-              <span class="swatch" aria-hidden="true"></span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- CONTACT -->
-      <section class="section" id="contact">
-        <div class="container">
-          <div class="contact-card reveal">
-            <div class="contact-card__copy">
-              <h2 class="section__title">Contact</h2>
-              <p class="section__lead">
-                If you have an interesting dataset or a messy metric problem, I’m always happy to chat.
+              <p class="card__body">
+                I like projects where I can:
+                <strong>define a metric</strong>, <strong>clean the mess</strong>, and
+                <strong>ship something useful</strong> (a dashboard, a memo, or a repeatable pipeline).
               </p>
 
-              <div class="contact-actions">
-                <!-- IMPORTANT: replace this with your real email -->
-                <a class="btn btn--primary" href="mailto:your.email@example.com">
-                  Email me
-                </a>
-
-                <button class="btn btn--ghost" type="button" id="copyEmailBtn" data-email="your.email@example.com">
-                  Copy email
-                </button>
+              <div class="card__tags" aria-label="Keywords">
+                <span class="chip">Cohorts</span>
+                <span class="chip">Conversion</span>
+                <span class="chip">Data QA</span>
+                <span class="chip">Storytelling</span>
               </div>
 
-              <div class="social">
-                <!-- Replace links if needed -->
-                <a class="social__link" href="https://www.linkedin.com" target="_blank" rel="noreferrer">
-                  LinkedIn
-                </a>
-                <a class="social__link" href="https://github.com/h-dhatt" target="_blank" rel="noreferrer">
+              <div class="card__actions">
+                <a class="btn btn--sm" href="#contact">Say hi</a>
+                <a class="btn btn--ghost btn--sm" href="https://github.com/h-dhatt" target="_blank" rel="noreferrer">
                   GitHub
                 </a>
-                <a class="social__link" href="Harleen-Dhatt-Resume.pdf" target="_blank" rel="noreferrer">
-                  Resume PDF
-                </a>
-              </div>
-
-              <p class="tiny">
-                Tip: set your real LinkedIn URL + email above (search for <code>your.email@example.com</code>).
-              </p>
-            </div>
-
-            <div class="contact-card__aside" aria-hidden="true">
-              <div class="aside-badge">
-                <div class="aside-badge__title">Available for</div>
-                <div class="aside-badge__items">
-                  <span class="pill">Analytics</span>
-                  <span class="pill">Dashboards</span>
-                  <span class="pill">Experiment reads</span>
-                  <span class="pill">Data QA</span>
-                </div>
-              </div>
-
-              <div class="aside-quote">
-                <div class="aside-quote__mark">“</div>
-                <div class="aside-quote__text">
-                  My goal is simple: make the next decision feel obvious.
-                </div>
               </div>
             </div>
+          </div>
+        </div>
+
+        <div class="scrollhint" aria-hidden="true">
+          <span class="scrollhint__line"></span>
+          <span class="scrollhint__text">Scroll</span>
+        </div>
+      </section>
+
+      <!-- About -->
+      <section id="about" class="section">
+        <div class="container">
+          <div class="section__head">
+            <h2 class="reveal">About</h2>
+            <p class="reveal">
+              A quick, human-friendly summary of how I work.
+            </p>
+          </div>
+
+          <div class="about reveal">
+            <div class="about__col">
+              <h3>My approach</h3>
+              <ul class="bullets">
+                <li><strong>Start with decisions:</strong> what should someone do differently after reading?</li>
+                <li><strong>Make metrics boring (in a good way):</strong> definitions, edge cases, QA.</li>
+                <li><strong>Show the path:</strong> a small set of charts + a clear recommendation.</li>
+              </ul>
+            </div>
+
+            <div class="about__col">
+              <h3>What you’ll see here</h3>
+              <ul class="bullets">
+                <li><strong>Revenue & retention</strong> work with cohorts and KPI design.</li>
+                <li><strong>A/B testing</strong> with segmentation and interpretation.</li>
+                <li><strong>Cleaning + QA</strong> pipelines you can trust in production.</li>
+                <li><strong>Executive writing</strong> that turns analysis into action.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section id="projects" class="section section--soft">
+        <div class="container">
+          <div class="section__head">
+            <h2 class="reveal">Projects</h2>
+            <p class="reveal">
+              Click a project for a fast, “reader-friendly” overview—then jump into the repo when you want the details.
+            </p>
+          </div>
+
+          <div id="projectsGrid" class="grid reveal" aria-label="Project list">
+            <!-- Injected by script.js -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills -->
+      <section id="skills" class="section">
+        <div class="container">
+          <div class="section__head">
+            <h2 class="reveal">Skills</h2>
+            <p class="reveal">Tools I reach for most often—plus a few bonus favorites.</p>
+          </div>
+
+          <div class="skills reveal">
+            <div class="skillcard">
+              <h3>Core</h3>
+              <div class="chips">
+                <span class="chip">SQL</span>
+                <span class="chip">Python</span>
+                <span class="chip">Excel</span>
+                <span class="chip">Tableau</span>
+                <span class="chip">Power BI</span>
+              </div>
+            </div>
+
+            <div class="skillcard">
+              <h3>Python stack</h3>
+              <div class="chips">
+                <span class="chip">Pandas</span>
+                <span class="chip">NumPy</span>
+                <span class="chip">Matplotlib</span>
+              </div>
+            </div>
+
+            <div class="skillcard">
+              <h3>Bonus</h3>
+              <div class="chips">
+                <span class="chip">R</span>
+                <span class="chip">Jupyter</span>
+                <span class="chip">Git / GitHub</span>
+                <span class="chip">QA checks</span>
+                <span class="chip">Cohort analysis</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" class="section section--soft">
+        <div class="container">
+          <div class="section__head">
+            <h2 class="reveal">Contact</h2>
+            <p class="reveal">
+              If you have an interesting dataset, a messy pipeline, or a dashboard that needs a glow-up—let’s talk.
+            </p>
+          </div>
+
+          <div class="contact reveal">
+            <a class="contact__card" href="mailto:harleendhatt@gmail.com">
+              <div class="contact__label">Email</div>
+              <div class="contact__value">harleendhatt@gmail.com</div>
+              <div class="contact__hint">Best for opportunities & collabs</div>
+            </a>
+
+            <a class="contact__card" href="https://www.linkedin.com/in/harleen-dhatt" target="_blank" rel="noreferrer">
+              <div class="contact__label">LinkedIn</div>
+              <div class="contact__value">/in/harleen-dhatt</div>
+              <div class="contact__hint">Quick hello & context</div>
+            </a>
+
+            <a class="contact__card" href="https://github.com/h-dhatt" target="_blank" rel="noreferrer">
+              <div class="contact__label">GitHub</div>
+              <div class="contact__value">github.com/h-dhatt</div>
+              <div class="contact__hint">Repos + experiments</div>
+            </a>
           </div>
 
           <footer class="footer">
-            <div class="footer__left">© <span id="year"></span> Harleen Dhatt</div>
-            <a class="footer__top" href="#top">Back to top ↑</a>
+            <span>© <span id="year"></span> Harleen Dhatt</span>
+            <a class="footer__link" href="#top">Back to top ↑</a>
           </footer>
         </div>
       </section>
     </main>
 
-    <!-- PROJECT MODAL -->
-    <dialog class="modal" id="projectModal" aria-label="Project details">
-      <div class="modal__inner">
-        <button class="modal__close" type="button" id="modalClose" aria-label="Close">✕</button>
-
-        <div class="modal__header">
-          <div class="modal__meta" id="modalMeta"></div>
-          <h3 class="modal__title" id="modalTitle"></h3>
-          <p class="modal__subtitle" id="modalSubtitle"></p>
-
-          <div class="modal__links" id="modalLinks"></div>
-        </div>
+    <!-- Project modal -->
+    <div id="modalOverlay" class="modalOverlay" hidden>
+      <div
+        class="modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modalTitle"
+        aria-describedby="modalDesc"
+      >
+        <button id="modalClose" class="modal__close" type="button" aria-label="Close">
+          ✕
+        </button>
 
         <div class="modal__content">
-          <div class="modal__section">
-            <h4>Overview</h4>
-            <p id="modalOverview"></p>
-          </div>
+          <div class="modal__eyebrow" id="modalEyebrow"></div>
+          <h3 id="modalTitle"></h3>
+          <p id="modalDesc" class="modal__desc"></p>
 
           <div class="modal__grid">
-            <div class="modal__section">
+            <div class="modal__col">
+              <h4>Why this exists</h4>
+              <p id="modalWhy"></p>
+
               <h4>What I did</h4>
-              <ul class="bullets" id="modalBullets"></ul>
+              <ul id="modalBullets" class="bullets bullets--tight"></ul>
+
+              <h4>What it shows</h4>
+              <p id="modalShows"></p>
             </div>
 
-            <div class="modal__section">
-              <h4>Outputs</h4>
-              <ul class="bullets" id="modalOutputs"></ul>
-            </div>
-          </div>
+            <div class="modal__col">
+              <div class="modal__panel">
+                <div class="panel__row">
+                  <div class="panel__label">Stack</div>
+                  <div class="panel__value" id="modalStack"></div>
+                </div>
+                <div class="panel__row">
+                  <div class="panel__label">Methods</div>
+                  <div class="panel__value" id="modalMethods"></div>
+                </div>
+                <div class="panel__row">
+                  <div class="panel__label">Deliverables</div>
+                  <div class="panel__value" id="modalDeliverables"></div>
+                </div>
+              </div>
 
-          <div class="modal__section">
-            <h4>Tools</h4>
-            <div class="tags" id="modalTags"></div>
+              <div class="modal__actions">
+                <a id="modalRepo" class="btn" href="#" target="_blank" rel="noreferrer">Open repo</a>
+                <button id="modalNext" class="btn btn--ghost" type="button">Next project →</button>
+              </div>
+
+              <p class="modal__note">
+                Tip: skim this pop-up first, then open the repo when you want the code + deeper details.
+              </p>
+            </div>
           </div>
         </div>
       </div>
-    </dialog>
+    </div>
 
-    <!-- Toast -->
-    <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+    <script src="script.js"></script>
   </body>
 </html>
