@@ -1,11 +1,29 @@
+/* =========================================================
+   script.js — FULL FILE (copy/paste this whole thing)
+   - Starts on homepage (modal is CLOSED on load)
+   - Click project -> modal opens
+   - Click outside / press Esc / click X -> modal closes
+   - Light/Dark toggle works + saves
+   - Subtle animated canvas background
+========================================================= */
+
 /* ==========================
-   Helpers
+   Tiny helpers
 ========================== */
 const $ = (sel, root = document) => root.querySelector(sel);
 const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
 
 function clamp(n, a, b) {
   return Math.max(a, Math.min(b, n));
+}
+
+function escapeHtml(str) {
+  return String(str)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
 }
 
 /* ==========================
@@ -16,6 +34,7 @@ const THEME_KEY = "hd_theme";
 function getPreferredTheme() {
   const saved = localStorage.getItem(THEME_KEY);
   if (saved === "light" || saved === "dark") return saved;
+
   const prefersDark = window.matchMedia?.("(prefers-color-scheme: dark)")?.matches;
   return prefersDark ? "dark" : "light";
 }
@@ -27,7 +46,6 @@ function setTheme(theme) {
   const btn = $("#themeToggle");
   if (btn) btn.setAttribute("aria-pressed", String(theme === "dark"));
 
-  // Update icon
   const icon = $("#themeToggle .toggle__icon");
   if (icon) icon.textContent = theme === "dark" ? "☾" : "◐";
 }
@@ -35,7 +53,7 @@ function setTheme(theme) {
 setTheme(getPreferredTheme());
 
 window.matchMedia?.("(prefers-color-scheme: dark)")?.addEventListener?.("change", (e) => {
-  // Only auto-follow OS if the user hasn't explicitly set a theme
+  // Only auto-follow OS if the user hasn't explicitly chosen a theme
   const saved = localStorage.getItem(THEME_KEY);
   if (saved) return;
   setTheme(e.matches ? "dark" : "light");
@@ -63,151 +81,142 @@ revealEls.forEach((el) => io.observe(el));
 /* ==========================
    Year
 ========================== */
-$("#year").textContent = String(new Date().getFullYear());
+const yearEl = $("#year");
+if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
 /* ==========================
-   Projects data (edit text here anytime)
+   Projects data (edit this whenever you want)
 ========================== */
 const PROJECTS = [
   {
     id: "rev-retention",
-    badge: "Capstone",
-    title: "Revenue & Retention Analytics",
+    badge: "Project",
+    title: "Revenue & Retention Practice",
     blurb:
-      "Built fact tables + KPIs in SQL, analyzed conversion and cohort retention, and wrote executive recommendations.",
+      "A practice project where I used SQL and Python to explore revenue and retention-style metrics.",
     why:
-      "Businesses don’t just need charts—they need a dependable set of definitions for revenue, conversion, and retention so teams can make decisions without arguing over numbers.",
+      "I wanted to practice taking messy-looking data and turning it into something I can summarize clearly.",
     bullets: [
-      "Designed clean fact tables and KPI views in SQL",
-      "Built a dashboard view of revenue + conversion + retention",
-      "Ran cohort retention analysis and explored churn drivers in Python",
-      "Translated findings into clear, decision-ready recommendations",
+      "Wrote SQL queries to summarize key numbers",
+      "Checked the data for obvious issues (missing values / duplicates)",
+      "Did simple retention-style grouping (cohorts) in Python",
+      "Wrote a short summary of what I found",
     ],
     shows:
-      "How I move from raw events → trustworthy KPIs → a narrative that helps someone choose what to do next.",
-    stack: "SQL, Python (pandas), BI (Power BI / Tableau)",
-    methods: "KPI design, cohort analysis, funnel thinking, retention drivers",
-    deliverables: "SQL tables/views, analysis notebook, executive summary",
-    tags: ["SQL", "Python", "KPIs", "Cohorts"],
+      "My process for cleaning, summarizing, and writing up results in a simple way.",
+    stack: "SQL, Python (pandas)",
+    methods: "Basic KPIs, simple cohort grouping, summary tables",
+    deliverables: "Queries + notebook + short write-up",
+    tags: ["SQL", "Python", "Practice"],
     repo: "https://github.com/h-dhatt/capstone-revenue-retention",
   },
   {
     id: "ab-test",
-    badge: "Experiment",
-    title: "A/B Test Experiment",
+    badge: "Project",
+    title: "A/B Test Practice",
     blurb:
-      "Designed control vs treatment, measured conversion lift + significance, and interpreted results by segment.",
+      "A practice analysis where I compared two groups and summarized the results in plain language.",
     why:
-      "A/B tests are only useful if the setup is clean, the metric is well-defined, and the result is interpreted with real-world context (not just p-values).",
+      "I wanted to learn how to read experiment results carefully and avoid over-confident conclusions.",
     bullets: [
-      "Defined hypothesis, success metric, and guardrails",
-      "Compared control vs treatment and checked statistical significance",
-      "Segmented results to see who was most impacted",
-      "Wrote an interpretation you could hand to a PM or stakeholder",
+      "Defined a goal metric (like conversion) and compared groups",
+      "Checked differences and basic statistical output",
+      "Looked at a few segments to see if results changed",
+      "Wrote a short, cautious conclusion",
     ],
     shows:
-      "How I think about experiments: measurable outcomes, clean comparisons, and a recommendation that respects uncertainty.",
+      "How I interpret results carefully and explain what they do (and don’t) mean.",
     stack: "Python",
-    methods: "Hypothesis testing, confidence intervals, segmentation",
-    deliverables: "Analysis notebook + clear write-up",
-    tags: ["Python", "Statistics", "A/B Testing", "Segmentation"],
+    methods: "Basic hypothesis testing, comparing groups",
+    deliverables: "Notebook + write-up",
+    tags: ["Python", "A/B Testing", "Practice"],
     repo: "https://github.com/h-dhatt/experiment-ab-test",
   },
   {
     id: "qa-pipeline",
-    badge: "Pipeline",
-    title: "Data Cleaning & QA Pipeline",
+    badge: "Project",
+    title: "Cleaning & QA Practice",
     blurb:
-      "Production-style cleaning: applied explicit rules and validated outputs with quality checks.",
+      "A small pipeline where I cleaned data and added checks so I could trust the output.",
     why:
-      "If data quality is shaky, everything downstream becomes expensive: dashboards drift, experiments mislead, and teams lose trust. A repeatable QA approach is the fix.",
+      "I wanted to learn good habits: clean data step-by-step and verify the result before analyzing.",
     bullets: [
-      "Implemented rule-based cleaning steps with clear, testable logic",
-      "Validated outputs with QA checks (ranges, missingness, duplicates, schema)",
-      "Structured the work like something you could schedule and run regularly",
-      "Kept the pipeline readable so it’s easy to extend later",
+      "Cleaned common issues (missing values, formatting, duplicates)",
+      "Added simple checks (row counts, ranges, nulls)",
+      "Kept the code organized and readable",
+      "Wrote notes about assumptions I made",
     ],
     shows:
-      "How I build reliability: transparent rules, measurable checks, and outputs you can trust before analysis begins.",
+      "How I try to keep data work careful and repeatable.",
     stack: "Python",
-    methods: "Data validation, QA checks, production-minded structure",
-    deliverables: "Cleaning pipeline + QA checks + documentation",
-    tags: ["Python", "Data Cleaning", "QA", "Ops"],
+    methods: "Data cleaning, basic validation checks",
+    deliverables: "Pipeline + checks + notes",
+    tags: ["Python", "Data Cleaning", "QA"],
     repo: "https://github.com/h-dhatt/ops-cleaning-qa-pipeline",
   },
   {
     id: "memo",
-    badge: "Writing",
-    title: "One-Page Insights Memo",
+    badge: "Project",
+    title: "Simple Insights Write-Up",
     blurb:
-      "Executive-style one-pager: communicates insights + recommendations with a decision-focused structure.",
+      "A short, one-page style write-up to practice explaining results clearly.",
     why:
-      "Great analysis can still fail if it’s hard to read. A one-page memo forces clarity: what matters, why it matters, and what we should do next.",
+      "I’m practicing communication: making my work easy to understand even for non-technical readers.",
     bullets: [
-      "Synthesized insights into a decision-first narrative",
-      "Used a simple structure: context → findings → recommendation → risks",
-      "Kept language crisp and non-technical where possible",
-      "Made it skimmable for busy stakeholders",
+      "Summarized the goal and the data used",
+      "Shared the main results (only a few key points)",
+      "Wrote a simple recommendation / next step",
+      "Kept wording clear and honest",
     ],
     shows:
-      "How I write: not more words—just the right words, with a clear decision at the end.",
-    stack: "Communication + analytics",
-    methods: "Storytelling, prioritization, executive framing",
-    deliverables: "One-page memo",
-    tags: ["Communication", "Storytelling", "Analytics"],
+      "How I write about data without exaggerating.",
+    stack: "Writing + basic analysis",
+    methods: "Clear structure, simple explanations",
+    deliverables: "One-page write-up",
+    tags: ["Writing", "Communication"],
     repo: "https://github.com/h-dhatt/insights-onepager-memo",
   },
 ];
 
 /* ==========================
-   Render projects
+   Render project cards
 ========================== */
 const projectsGrid = $("#projectsGrid");
+if (projectsGrid) {
+  PROJECTS.forEach((p, idx) => {
+    const el = document.createElement("button");
+    el.type = "button";
+    el.className = "project";
+    el.dataset.projectId = p.id;
+    el.setAttribute("aria-label", `Open project: ${p.title}`);
 
-function projectCard(p, index) {
-  const el = document.createElement("button");
-  el.type = "button";
-  el.className = "project";
-  el.dataset.projectId = p.id;
-  el.setAttribute("aria-label", `Open project: ${p.title}`);
-
-  el.innerHTML = `
-    <div class="project__top">
-      <div>
-        <div class="badge">${escapeHtml(p.badge)}</div>
-        <h3>${escapeHtml(p.title)}</h3>
+    el.innerHTML = `
+      <div class="project__top">
+        <div>
+          <div class="badge">${escapeHtml(p.badge)}</div>
+          <h3>${escapeHtml(p.title)}</h3>
+        </div>
+        <div class="project__hint" aria-hidden="true">
+          <span>Open</span> <span>↗</span>
+        </div>
       </div>
-      <div class="project__hint" aria-hidden="true">
-        <span>Open</span> <span>↗</span>
+      <p>${escapeHtml(p.blurb)}</p>
+      <div class="project__chips">
+        ${p.tags.map((t) => `<span class="chip">${escapeHtml(t)}</span>`).join("")}
       </div>
-    </div>
-    <p>${escapeHtml(p.blurb)}</p>
-    <div class="project__chips">
-      ${p.tags.map((t) => `<span class="chip">${escapeHtml(t)}</span>`).join("")}
-    </div>
-    <div class="project__footer">
-      <span>Project ${index + 1} of ${PROJECTS.length}</span>
-      <span class="project__hint"><span>Click for details</span> <span>→</span></span>
-    </div>
-  `;
+      <div class="project__footer">
+        <span>Project ${idx + 1} of ${PROJECTS.length}</span>
+        <span class="project__hint"><span>Click for details</span> <span>→</span></span>
+      </div>
+    `;
 
-  el.addEventListener("click", () => openModal(p.id));
-  return el;
+    el.addEventListener("click", () => openModal(p.id));
+    projectsGrid.appendChild(el);
+  });
 }
-
-function escapeHtml(str) {
-  return String(str)
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#039;");
-}
-
-PROJECTS.forEach((p, idx) => projectsGrid.appendChild(projectCard(p, idx)));
 
 /* ==========================
-   Modal logic (accessible-ish)
+   Modal logic (STARTS CLOSED)
 ========================== */
 const overlay = $("#modalOverlay");
 const closeBtn = $("#modalClose");
@@ -217,7 +226,15 @@ const repoBtn = $("#modalRepo");
 let activeProjectIndex = 0;
 let lastFocused = null;
 
+// ✅ guarantee the modal is closed when the page loads
+document.addEventListener("DOMContentLoaded", () => {
+  if (overlay) overlay.hidden = true;
+  document.body.style.overflow = "";
+});
+
 function openModal(projectId) {
+  if (!overlay) return;
+
   const idx = PROJECTS.findIndex((p) => p.id === projectId);
   if (idx === -1) return;
 
@@ -245,18 +262,23 @@ function openModal(projectId) {
     ul.appendChild(li);
   });
 
-  repoBtn.href = p.repo;
+  if (repoBtn) repoBtn.href = p.repo;
 
+  // ✅ OPEN
   overlay.hidden = false;
   document.body.style.overflow = "hidden";
 
-  // Focus close button for keyboard users
-  closeBtn.focus();
+  // focus close button
+  closeBtn?.focus();
 }
 
 function closeModal() {
+  if (!overlay) return;
+
+  // ✅ CLOSE
   overlay.hidden = true;
   document.body.style.overflow = "";
+
   if (lastFocused && typeof lastFocused.focus === "function") lastFocused.focus();
 }
 
@@ -265,71 +287,84 @@ function nextProject() {
   openModal(PROJECTS[nextIdx].id);
 }
 
-closeBtn.addEventListener("click", closeModal);
-nextBtn.addEventListener("click", nextProject);
+// Buttons
+closeBtn?.addEventListener("click", closeModal);
+nextBtn?.addEventListener("click", nextProject);
 
-// Close on overlay click (but not when clicking the modal itself)
-overlay.addEventListener("click", (e) => {
+// Click outside the modal closes it
+overlay?.addEventListener("click", (e) => {
   if (e.target === overlay) closeModal();
 });
 
-// Close on Escape + basic focus trap
+// Escape closes it + ArrowRight for next
 document.addEventListener("keydown", (e) => {
-  if (overlay.hidden) return;
+  if (!overlay || overlay.hidden) return;
 
   if (e.key === "Escape") {
     e.preventDefault();
     closeModal();
-    return;
   }
+  if (e.key === "ArrowRight") {
+    e.preventDefault();
+    nextProject();
+  }
+});
 
-  if (e.key === "Tab") {
-    const focusables = $$(
-      'button, a[href], input, textarea, select, [tabindex]:not([tabindex="-1"])',
-      overlay
-    ).filter((el) => !el.hasAttribute("disabled"));
+// Simple focus trap (prevents tabbing behind modal)
+document.addEventListener("keydown", (e) => {
+  if (!overlay || overlay.hidden) return;
+  if (e.key !== "Tab") return;
 
-    if (focusables.length === 0) return;
+  const focusables = $$(
+    'button, a[href], input, textarea, select, [tabindex]:not([tabindex="-1"])',
+    overlay
+  ).filter((el) => !el.hasAttribute("disabled"));
 
-    const first = focusables[0];
-    const last = focusables[focusables.length - 1];
+  if (focusables.length === 0) return;
 
-    if (e.shiftKey && document.activeElement === first) {
-      e.preventDefault();
-      last.focus();
-    } else if (!e.shiftKey && document.activeElement === last) {
-      e.preventDefault();
-      first.focus();
-    }
+  const first = focusables[0];
+  const last = focusables[focusables.length - 1];
+
+  if (e.shiftKey && document.activeElement === first) {
+    e.preventDefault();
+    last.focus();
+  } else if (!e.shiftKey && document.activeElement === last) {
+    e.preventDefault();
+    first.focus();
   }
 });
 
 /* ==========================
-   Ambient canvas animation (soft, Yan-ish vibe)
-   - Respects prefers-reduced-motion
+   Ambient canvas animation
 ========================== */
 const prefersReduced = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
 const canvas = $("#bg-canvas");
-const ctx = canvas.getContext("2d", { alpha: true });
+const ctx = canvas?.getContext?.("2d", { alpha: true });
 
 let w = 0;
 let h = 0;
 let dpr = Math.max(1, Math.min(2, window.devicePixelRatio || 1));
 
 function resize() {
+  if (!canvas || !ctx) return;
+
   w = Math.floor(window.innerWidth);
   h = Math.floor(window.innerHeight);
   dpr = Math.max(1, Math.min(2, window.devicePixelRatio || 1));
+
   canvas.width = Math.floor(w * dpr);
   canvas.height = Math.floor(h * dpr);
   canvas.style.width = `${w}px`;
   canvas.style.height = `${h}px`;
+
   ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 }
+
 window.addEventListener("resize", resize, { passive: true });
 resize();
 
-const pointer = { x: w * 0.4, y: h * 0.3, vx: 0, vy: 0 };
+const pointer = { x: w * 0.4, y: h * 0.3 };
+
 window.addEventListener(
   "pointermove",
   (e) => {
@@ -347,6 +382,7 @@ function themeColors() {
       b: "rgba(178, 76, 255, 0.22)",
       c: "rgba(90, 215, 255, 0.18)",
       line: "rgba(244, 238, 246, 0.10)",
+      vignette: "rgba(0,0,0,0.16)",
     };
   }
   return {
@@ -354,13 +390,14 @@ function themeColors() {
     b: "rgba(178, 76, 255, 0.18)",
     c: "rgba(90, 215, 255, 0.16)",
     line: "rgba(32, 26, 34, 0.08)",
+    vignette: "rgba(0,0,0,0.04)",
   };
 }
 
 const N = 38;
 const blobs = Array.from({ length: N }, () => ({
-  x: Math.random() * w,
-  y: Math.random() * h,
+  x: Math.random() * (w || 800),
+  y: Math.random() * (h || 600),
   r: 18 + Math.random() * 42,
   dx: (Math.random() - 0.5) * 0.35,
   dy: (Math.random() - 0.5) * 0.35,
@@ -368,14 +405,15 @@ const blobs = Array.from({ length: N }, () => ({
 }));
 
 function draw(t) {
-  ctx.clearRect(0, 0, w, h);
+  if (!canvas || !ctx) return;
 
+  ctx.clearRect(0, 0, w, h);
   const col = themeColors();
 
   // Gentle vignette
   const g = ctx.createRadialGradient(w * 0.5, h * 0.45, 80, w * 0.5, h * 0.45, Math.max(w, h));
   g.addColorStop(0, "rgba(255,255,255,0.00)");
-  g.addColorStop(1, document.documentElement.dataset.theme === "dark" ? "rgba(0,0,0,0.16)" : "rgba(0,0,0,0.04)");
+  g.addColorStop(1, col.vignette);
   ctx.fillStyle = g;
   ctx.fillRect(0, 0, w, h);
 
@@ -409,7 +447,7 @@ function draw(t) {
     ctx.fill();
   }
 
-  // Lines between nearby blobs (subtle)
+  // Soft lines between nearby blobs
   ctx.lineWidth = 1;
   for (let i = 0; i < blobs.length; i++) {
     for (let j = i + 1; j < blobs.length; j++) {
@@ -418,9 +456,12 @@ function draw(t) {
       const dx = a.x - b.x;
       const dy = a.y - b.y;
       const dist = Math.hypot(dx, dy);
+
       if (dist < 140) {
         const alpha = (1 - dist / 140) * 0.45;
-        ctx.strokeStyle = col.line.replace("0.10", String(0.10 * alpha)).replace("0.08", String(0.08 * alpha));
+        const base = col.line.includes("0.10") ? 0.10 : 0.08;
+        ctx.strokeStyle = col.line.replace(String(base), String(base * alpha));
+
         ctx.beginPath();
         ctx.moveTo(a.x, a.y);
         ctx.lineTo(b.x, b.y);
@@ -433,11 +474,3 @@ function draw(t) {
 }
 
 if (!prefersReduced) requestAnimationFrame(draw);
-
-/* ==========================
-   Small polish: click "Next project" with arrow keys in modal
-========================== */
-document.addEventListener("keydown", (e) => {
-  if (overlay.hidden) return;
-  if (e.key === "ArrowRight") nextProject();
-});
