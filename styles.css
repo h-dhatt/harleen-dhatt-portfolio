@@ -1,3 +1,6 @@
+/* Ensure hidden attribute truly hides overlays/modals */
+[hidden] { display: none !important; }
+
 /* --------------------------
    Theme tokens (light first)
 --------------------------- */
