@@ -730,3 +730,27 @@ a:hover { text-decoration: none; }
   border-radius: 12px;
   margin: 10px 0 14px 0;
 }
+
+
+/* Project card cover image */
+.project-cover {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px; /* small + matches most card styles */
+  margin-bottom: 12px;
+}
+
+/* Modal stacked dashboard images */
+.project-modal-images {
+  margin: 12px 0 16px;
+}
+
+.project-modal-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+  margin: 10px 0;
+}
+
