@@ -722,3 +722,11 @@ a:hover { text-decoration: none; }
   .brand { min-width: auto; }
   .modal__grid { grid-template-columns: 1fr; }
 }
+
+.project-thumb {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  margin: 10px 0 14px 0;
+}
