@@ -240,18 +240,28 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function ensureModalImagesContainer() {
-  // We’ll inject images right after #modalDesc.
+  // Insert dashboards section right after #modalDesc
   const desc = $("#modalDesc");
   if (!desc) return null;
 
-  let container = $("#modalImages");
-  if (!container) {
-    container = document.createElement("div");
-    container.id = "modalImages";
-    container.className = "project-modal-images";
-    desc.insertAdjacentElement("afterend", container);
+  let details = $("#modalDashboards");
+  if (!details) {
+    details = document.createElement("details");
+    details.id = "modalDashboards";
+    details.className = "modal-dashboards";
+    details.open = false; // IMPORTANT: overview first
+
+    details.innerHTML = `
+      <summary class="modal-dashboards__summary">
+        View dashboards <span class="modal-dashboards__count" id="modalDashCount"></span>
+      </summary>
+      <div id="modalImages" class="project-modal-images"></div>
+    `;
+
+    desc.insertAdjacentElement("afterend", details);
   }
-  return container;
+
+  return $("#modalImages");
 }
 
 function openModal(projectId) {
@@ -270,17 +280,32 @@ function openModal(projectId) {
   $("#modalDesc").textContent = p.blurb;
 
   // NEW: images stacked in modal
-  const imagesWrap = ensureModalImagesContainer();
-  if (imagesWrap) {
-    imagesWrap.innerHTML = (p.images || [])
-      .map(
-        (src, i) =>
-          `<img class="project-modal-img" src="${escapeHtml(src)}" alt="${escapeHtml(
-            p.title
-          )} dashboard ${i + 1}" loading="lazy">`
-      )
-      .join("");
-  }
+  // NEW: reader-friendly — dashboards hidden by default (toggle)
+const imagesWrap = ensureModalImagesContainer();
+const countEl = $("#modalDashCount");
+const dashDetails = $("#modalDashboards");
+
+const imgs = p.images || [];
+if (countEl) countEl.textContent = imgs.length ? `(${imgs.length})` : "";
+
+if (dashDetails) {
+  // keep closed by default for overview-first reading
+  dashDetails.open = false;
+
+  // if there are no images, hide the whole dashboards toggle
+  dashDetails.style.display = imgs.length ? "" : "none";
+}
+
+if (imagesWrap) {
+  imagesWrap.innerHTML = imgs
+    .map(
+      (src, i) =>
+        `<img class="project-modal-img" src="${escapeHtml(src)}" alt="${escapeHtml(
+          p.title
+        )} dashboard ${i + 1}" loading="lazy">`
+    )
+    .join("");
+}
 
   $("#modalWhy").textContent = p.why;
   $("#modalShows").textContent = p.shows;
