@@ -776,7 +776,7 @@ a:hover { text-decoration: none; }
 .project-modal-img {
   width: 100%;
   height: auto;
-  max-height: 70vh;   /* prevents a single image from taking over the whole screen */
+  max-height: 45vh;   /* prevents a single image from taking over the whole screen */
   object-fit: contain; /* critical: prevents "zoom/crop" */
 }
 
