@@ -5,6 +5,12 @@
    - Click outside / press Esc / click X -> modal closes
    - Light/Dark toggle works + saves
    - Subtle animated canvas background
+
+   UPDATED BY CHATGPT:
+   - Replaced projects with ONLY your 3 projects
+   - Added cover + images[] fields
+   - Renders cover on project cards
+   - Renders all images (2–3) stacked in modal
 ========================================================= */
 
 /* ==========================
@@ -85,77 +91,96 @@ const yearEl = $("#year");
 if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
 /* ==========================
-   Projects data (edit this whenever you want)
+   Projects data (ONLY these 3)
+   + cover (card)
+   + images[] (modal)
 ========================== */
-
- const projects = [
+const PROJECTS = [
   {
-    slug: "toronto-ksi",
+    id: "toronto-ksi",
     title: "Toronto KSI Traffic Collisions Analysis",
-    oneLiner: "Analyzed Killed or Seriously Injured (KSI) collisions to find hotspots, trends, and impacted road user groups.",
-    repoUrl: "https://github.com/h-dhatt/toronto-ksi-collisions-analysis",
-    image: "assets/project-ksi.jpg",
-    why: "KSI collisions are a key road-safety metric. I wanted a clear, descriptive view of where severe collisions cluster and how patterns change over time.",
-    whatIDid: [
+    badge: "Data Analysis",
+    blurb:
+      "Analyzed Killed or Seriously Injured (KSI) collisions to find hotspots, trends, and impacted road user groups.",
+    repo: "https://github.com/h-dhatt/toronto-ksi-collisions-analysis",
+
+    // NEW: card cover image
+    cover: "assets/ksi/hotspots.jpg",
+
+    // NEW: stacked images in modal
+    images: ["assets/ksi/hotspots.jpg", "assets/ksi/trends_road_users.jpg"],
+
+    why:
+      "KSI collisions are a key road-safety metric. I wanted a clear, descriptive view of where severe collisions cluster and how patterns change over time.",
+    shows:
+      "Hotspots, time trends, and road-user patterns in KSI collision records.",
+    bullets: [
       "Cleaned and standardized Toronto KSI open data in Python",
       "Built hotspot summaries and trend breakdowns",
-      "Created a Power BI report for quick exploration"
+      "Created a Power BI report for quick exploration",
     ],
-    whatItShows: [
-      "High-frequency locations (hotspots)",
-      "Yearly patterns and changes over time",
-      "Road user group mix in KSI records"
-    ],
+    tags: ["Python", "pandas", "Power BI", "EDA"],
     stack: ["Python", "pandas", "Power BI"],
     methods: ["Cleaning", "EDA", "Aggregation", "Trend analysis"],
-    deliverables: ["Power BI dashboard", "Cleaned analysis outputs", "Write-up in repo"]
+    deliverables: ["Power BI dashboard", "Cleaned analysis outputs", "Write-up in repo"],
   },
+
   {
-    slug: "ttc-delays",
+    id: "ttc-delays",
     title: "TTC Delay Hotspots & Drivers",
-    oneLiner: "Explored subway delay data to identify recurring hotspots, major causes, and time-based patterns.",
-    repoUrl: "https://github.com/h-dhatt/ttc-subway-delays-2024",
-    image: "assets/project-ttc.jpg",
-    why: "TTC delays affect real commuters. I wanted to turn raw incident logs into a clear view of what’s happening most often and where.",
-    whatIDid: [
+    badge: "Data Analysis",
+    blurb:
+      "Explored subway delay data to identify recurring hotspots, major causes, and time-based patterns.",
+    repo: "https://github.com/h-dhatt/ttc-subway-delays-2024",
+
+    cover: "assets/ttc/overview.jpg",
+    images: ["assets/ttc/overview.jpg", "assets/ttc/hotspots.jpg", "assets/ttc/drivers.jpg"],
+
+    why:
+      "TTC delays affect real commuters. I wanted to turn raw incident logs into a clear view of what’s happening most often and where.",
+    shows:
+      "Where delays cluster, what causes dominate, and how patterns shift across time.",
+    bullets: [
       "Queried and summarized delay data with SQL",
       "Validated + cleaned datasets in Python",
-      "Built a Power BI dashboard for delays by station/cause/time"
+      "Built a Power BI dashboard for delays by station/cause/time",
     ],
-    whatItShows: [
-      "Stations/segments with repeat delays",
-      "Top delay drivers and their share",
-      "Patterns by time window"
-    ],
+    tags: ["SQL", "Python", "Power BI", "Dashboards"],
     stack: ["SQL", "Python", "Power BI"],
     methods: ["Joins", "Grouping", "KPI summaries", "Dashboarding"],
-    deliverables: ["SQL queries", "Power BI dashboard", "Project notes"]
+    deliverables: ["SQL queries", "Power BI dashboard", "Project notes"],
   },
+
   {
-    slug: "bike-share",
+    id: "bike-share",
     title: "Bike Share Toronto Demand Forecasting",
-    oneLiner: "Built time-series forecasts to understand seasonality and predict demand for Bike Share usage.",
-    repoUrl: "https://github.com/h-dhatt/bike-share-toronto-demand-forecasting",
-    image: "assets/project-bike.jpg",
-    why: "Bike share demand is seasonal and weather-sensitive. I wanted to practice forecasting with real Toronto mobility data.",
-    whatIDid: [
+    badge: "Forecasting",
+    blurb:
+      "Built time-series forecasts to understand seasonality and predict demand for Bike Share usage.",
+    repo: "https://github.com/h-dhatt/bike-share-toronto-demand-forecasting",
+
+    cover: "assets/bikeshare/overview_dashboard.jpg",
+    images: ["assets/bikeshare/overview_dashboard.jpg", "assets/bikeshare/forecast_dashboard.jpg"],
+
+    why:
+      "Bike share demand is seasonal and weather-sensitive. I wanted to practice forecasting with real Toronto mobility data.",
+    shows:
+      "Seasonality, trend components, and model performance for demand forecasts.",
+    bullets: [
       "Cleaned and aggregated trip data in Python",
       "Explored seasonality and trend components",
-      "Trained baseline time-series models and evaluated results"
+      "Trained baseline time-series models and evaluated results",
     ],
-    whatItShows: [
-      "Seasonal demand patterns",
-      "Forecast accuracy vs baseline expectations",
-      "How preprocessing choices affect model performance"
-    ],
+    tags: ["Python", "pandas", "Time Series", "Forecasting"],
     stack: ["Python", "pandas", "time series"],
     methods: ["EDA", "Feature engineering", "Model evaluation"],
-    deliverables: ["Notebook workflow", "Forecast outputs", "Repo write-up"]
-  }
+    deliverables: ["Notebook workflow", "Forecast outputs", "Repo write-up"],
+  },
 ];
 
 /* ==========================
    Render project cards
+   - NEW: cover image on each card
 ========================== */
 const projectsGrid = $("#projectsGrid");
 if (projectsGrid) {
@@ -167,6 +192,8 @@ if (projectsGrid) {
     el.setAttribute("aria-label", `Open project: ${p.title}`);
 
     el.innerHTML = `
+      <img class="project-cover" src="${escapeHtml(p.cover)}" alt="${escapeHtml(p.title)} cover" loading="lazy">
+
       <div class="project__top">
         <div>
           <div class="badge">${escapeHtml(p.badge)}</div>
@@ -176,10 +203,13 @@ if (projectsGrid) {
           <span>Open</span> <span>↗</span>
         </div>
       </div>
+
       <p>${escapeHtml(p.blurb)}</p>
+
       <div class="project__chips">
         ${p.tags.map((t) => `<span class="chip">${escapeHtml(t)}</span>`).join("")}
       </div>
+
       <div class="project__footer">
         <span>Project ${idx + 1} of ${PROJECTS.length}</span>
         <span class="project__hint"><span>Click for details</span> <span>→</span></span>
@@ -193,6 +223,7 @@ if (projectsGrid) {
 
 /* ==========================
    Modal logic (STARTS CLOSED)
+   - NEW: render p.images[] stacked in modal
 ========================== */
 const overlay = $("#modalOverlay");
 const closeBtn = $("#modalClose");
@@ -207,6 +238,21 @@ document.addEventListener("DOMContentLoaded", () => {
   if (overlay) overlay.hidden = true;
   document.body.style.overflow = "";
 });
+
+function ensureModalImagesContainer() {
+  // We’ll inject images right after #modalDesc.
+  const desc = $("#modalDesc");
+  if (!desc) return null;
+
+  let container = $("#modalImages");
+  if (!container) {
+    container = document.createElement("div");
+    container.id = "modalImages";
+    container.className = "project-modal-images";
+    desc.insertAdjacentElement("afterend", container);
+  }
+  return container;
+}
 
 function openModal(projectId) {
   if (!overlay) return;
@@ -223,16 +269,30 @@ function openModal(projectId) {
   $("#modalTitle").textContent = p.title;
   $("#modalDesc").textContent = p.blurb;
 
+  // NEW: images stacked in modal
+  const imagesWrap = ensureModalImagesContainer();
+  if (imagesWrap) {
+    imagesWrap.innerHTML = (p.images || [])
+      .map(
+        (src, i) =>
+          `<img class="project-modal-img" src="${escapeHtml(src)}" alt="${escapeHtml(
+            p.title
+          )} dashboard ${i + 1}" loading="lazy">`
+      )
+      .join("");
+  }
+
   $("#modalWhy").textContent = p.why;
   $("#modalShows").textContent = p.shows;
 
-  $("#modalStack").textContent = p.stack;
-  $("#modalMethods").textContent = p.methods;
-  $("#modalDeliverables").textContent = p.deliverables;
+  // Join arrays nicely (your HTML expects textContent)
+  $("#modalStack").textContent = Array.isArray(p.stack) ? p.stack.join(" · ") : String(p.stack ?? "");
+  $("#modalMethods").textContent = Array.isArray(p.methods) ? p.methods.join(" · ") : String(p.methods ?? "");
+  $("#modalDeliverables").textContent = Array.isArray(p.deliverables) ? p.deliverables.join(" · ") : String(p.deliverables ?? "");
 
   const ul = $("#modalBullets");
   ul.innerHTML = "";
-  p.bullets.forEach((b) => {
+  (p.bullets || []).forEach((b) => {
     const li = document.createElement("li");
     li.textContent = b;
     ul.appendChild(li);
@@ -450,3 +510,4 @@ function draw(t) {
 }
 
 if (!prefersReduced) requestAnimationFrame(draw);
+
