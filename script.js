@@ -87,95 +87,71 @@ if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 /* ==========================
    Projects data (edit this whenever you want)
 ========================== */
-const PROJECTS = [
+
+ const projects = [
   {
-    id: "rev-retention",
-    badge: "Project",
-    title: "Revenue & Retention Practice",
-    blurb:
-      "A practice project where I used SQL and Python to explore revenue and retention-style metrics.",
-    why:
-      "I wanted to practice taking messy-looking data and turning it into something I can summarize clearly.",
-    bullets: [
-      "Wrote SQL queries to summarize key numbers",
-      "Checked the data for obvious issues (missing values / duplicates)",
-      "Did simple retention-style grouping (cohorts) in Python",
-      "Wrote a short summary of what I found",
+    slug: "toronto-ksi",
+    title: "Toronto KSI Traffic Collisions Analysis",
+    oneLiner: "Analyzed Killed or Seriously Injured (KSI) collisions to find hotspots, trends, and impacted road user groups.",
+    repoUrl: "https://github.com/h-dhatt/toronto-ksi-collisions-analysis",
+    image: "assets/project-ksi.jpg",
+    why: "KSI collisions are a key road-safety metric. I wanted a clear, descriptive view of where severe collisions cluster and how patterns change over time.",
+    whatIDid: [
+      "Cleaned and standardized Toronto KSI open data in Python",
+      "Built hotspot summaries and trend breakdowns",
+      "Created a Power BI report for quick exploration"
     ],
-    shows:
-      "My process for cleaning, summarizing, and writing up results in a simple way.",
-    stack: "SQL, Python (pandas)",
-    methods: "Basic KPIs, simple cohort grouping, summary tables",
-    deliverables: "Queries + notebook + short write-up",
-    tags: ["SQL", "Python", "Practice"],
-    repo: "https://github.com/h-dhatt/capstone-revenue-retention",
+    whatItShows: [
+      "High-frequency locations (hotspots)",
+      "Yearly patterns and changes over time",
+      "Road user group mix in KSI records"
+    ],
+    stack: ["Python", "pandas", "Power BI"],
+    methods: ["Cleaning", "EDA", "Aggregation", "Trend analysis"],
+    deliverables: ["Power BI dashboard", "Cleaned analysis outputs", "Write-up in repo"]
   },
   {
-    id: "ab-test",
-    badge: "Project",
-    title: "A/B Test Practice",
-    blurb:
-      "A practice analysis where I compared two groups and summarized the results in plain language.",
-    why:
-      "I wanted to learn how to read experiment results carefully and avoid over-confident conclusions.",
-    bullets: [
-      "Defined a goal metric (like conversion) and compared groups",
-      "Checked differences and basic statistical output",
-      "Looked at a few segments to see if results changed",
-      "Wrote a short, cautious conclusion",
+    slug: "ttc-delays",
+    title: "TTC Delay Hotspots & Drivers",
+    oneLiner: "Explored subway delay data to identify recurring hotspots, major causes, and time-based patterns.",
+    repoUrl: "https://github.com/h-dhatt/ttc-subway-delays-2024",
+    image: "assets/project-ttc.jpg",
+    why: "TTC delays affect real commuters. I wanted to turn raw incident logs into a clear view of what’s happening most often and where.",
+    whatIDid: [
+      "Queried and summarized delay data with SQL",
+      "Validated + cleaned datasets in Python",
+      "Built a Power BI dashboard for delays by station/cause/time"
     ],
-    shows:
-      "How I interpret results carefully and explain what they do (and don’t) mean.",
-    stack: "Python",
-    methods: "Basic hypothesis testing, comparing groups",
-    deliverables: "Notebook + write-up",
-    tags: ["Python", "A/B Testing", "Practice"],
-    repo: "https://github.com/h-dhatt/experiment-ab-test",
+    whatItShows: [
+      "Stations/segments with repeat delays",
+      "Top delay drivers and their share",
+      "Patterns by time window"
+    ],
+    stack: ["SQL", "Python", "Power BI"],
+    methods: ["Joins", "Grouping", "KPI summaries", "Dashboarding"],
+    deliverables: ["SQL queries", "Power BI dashboard", "Project notes"]
   },
   {
-    id: "qa-pipeline",
-    badge: "Project",
-    title: "Cleaning & QA Practice",
-    blurb:
-      "A small pipeline where I cleaned data and added checks so I could trust the output.",
-    why:
-      "I wanted to learn good habits: clean data step-by-step and verify the result before analyzing.",
-    bullets: [
-      "Cleaned common issues (missing values, formatting, duplicates)",
-      "Added simple checks (row counts, ranges, nulls)",
-      "Kept the code organized and readable",
-      "Wrote notes about assumptions I made",
+    slug: "bike-share",
+    title: "Bike Share Toronto Demand Forecasting",
+    oneLiner: "Built time-series forecasts to understand seasonality and predict demand for Bike Share usage.",
+    repoUrl: "https://github.com/h-dhatt/bike-share-toronto-demand-forecasting",
+    image: "assets/project-bike.jpg",
+    why: "Bike share demand is seasonal and weather-sensitive. I wanted to practice forecasting with real Toronto mobility data.",
+    whatIDid: [
+      "Cleaned and aggregated trip data in Python",
+      "Explored seasonality and trend components",
+      "Trained baseline time-series models and evaluated results"
     ],
-    shows:
-      "How I try to keep data work careful and repeatable.",
-    stack: "Python",
-    methods: "Data cleaning, basic validation checks",
-    deliverables: "Pipeline + checks + notes",
-    tags: ["Python", "Data Cleaning", "QA"],
-    repo: "https://github.com/h-dhatt/ops-cleaning-qa-pipeline",
-  },
-  {
-    id: "memo",
-    badge: "Project",
-    title: "Simple Insights Write-Up",
-    blurb:
-      "A short, one-page style write-up to practice explaining results clearly.",
-    why:
-      "I’m practicing communication: making my work easy to understand even for non-technical readers.",
-    bullets: [
-      "Summarized the goal and the data used",
-      "Shared the main results (only a few key points)",
-      "Wrote a simple recommendation / next step",
-      "Kept wording clear and honest",
+    whatItShows: [
+      "Seasonal demand patterns",
+      "Forecast accuracy vs baseline expectations",
+      "How preprocessing choices affect model performance"
     ],
-    shows:
-      "How I write about data without exaggerating.",
-    stack: "Writing + basic analysis",
-    methods: "Clear structure, simple explanations",
-    deliverables: "One-page write-up",
-    tags: ["Writing", "Communication"],
-    repo: "https://github.com/h-dhatt/insights-onepager-memo",
-  },
+    stack: ["Python", "pandas", "time series"],
+    methods: ["EDA", "Feature engineering", "Model evaluation"],
+    deliverables: ["Notebook workflow", "Forecast outputs", "Repo write-up"]
+  }
 ];
 
 /* ==========================
