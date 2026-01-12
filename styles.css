@@ -780,3 +780,56 @@ a:hover { text-decoration: none; }
   object-fit: contain; /* critical: prevents "zoom/crop" */
 }
 
+/* --- Make modal "overview-first" and keep dashboards optional --- */
+.modal {
+  max-height: 80vh;        /* smaller popup */
+  overflow: hidden;        /* keep rounded corners */
+}
+
+.modal__content {
+  max-height: 80vh;
+  overflow: auto;          /* scroll inside modal */
+}
+
+/* Dashboards toggle */
+.modal-dashboards {
+  margin-top: 12px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 10px 12px;
+}
+
+.modal-dashboards__summary {
+  cursor: pointer;
+  font-weight: 800;
+  color: var(--muted);
+  list-style: none;
+}
+
+.modal-dashboards__summary::-webkit-details-marker {
+  display: none;
+}
+
+.modal-dashboards__count {
+  color: var(--muted2);
+  font-weight: 900;
+  margin-left: 6px;
+}
+
+/* Dashboards area */
+.project-modal-images {
+  margin: 10px 0 0;
+}
+
+/* Make images smaller and never "zoom/crop" */
+.project-modal-img {
+  width: 100%;
+  height: auto;
+  max-height: 38vh;     /* key: keeps them from taking over */
+  object-fit: contain;  /* key: prevents cropping/zoom look */
+  display: block;
+  border-radius: 10px;
+  margin: 10px 0;
+}
+
